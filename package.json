@@ -1,0 +1,40 @@
+{
+  "name": "template",
+  "version": "0.1.0",
+  "description": "GitHub template repository.",
+  "scripts": {
+    "lint": "eslint --ignore-path .prettierignore --ext .ts,.tsx,.js,.jsx,.json .",
+    "format": "concurrently \"npm:format:default\"",
+    "format:default": "prettier --write \"**/*.{js,jsx,vue,ts,css,less,scss,html,htm,json,md,markdown,yml,yaml}\"",
+    "format-file:default": "prettier --write",
+    "release": "standard-version --sign",
+    "release:publish": "git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vidavidorra/template.git"
+  },
+  "author": "Jeroen de Bruijn",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/vidavidorra/template/issues"
+  },
+  "homepage": "https://github.com/vidavidorra/template#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "^2.9.0",
+    "@typescript-eslint/parser": "^2.9.0",
+    "concurrently": "^5.0.0",
+    "eslint": "^6.7.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-json": "^2.0.1",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.4.3",
+    "prettier": "^1.19.1",
+    "standard-version": "^7.0.1",
+    "typescript": "^3.7.2"
+  }
+}

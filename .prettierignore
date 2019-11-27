@@ -1,0 +1,7 @@
+.git/
+.vscode
+build/
+dist/
+LICENSE.md
+modules/
+node_modules/
