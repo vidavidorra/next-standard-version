@@ -18,9 +18,8 @@
     "release": "standard-version --sign",
     "release:publish": "git push --follow-tags",
     "build": "tsc",
-    "test": "jest",
-    "test:ci": "jest --ci --reporters=default --reporters=jest-junit --coverage --coverageReporters=text --coverageReporters=cobertura",
-    "test:coverage": "jest --coverage --coverageDirectory=./coverage --coverageReporters=text --coverageReporters=lcov",
+    "test": "jest --coverage --coverageDirectory=./coverage --coverageReporters=text --coverageReporters=lcov",
+    "test:ci": "jest --ci --coverage --coverageReporters=text --coverageReporters=cobertura",
     "test:staged": "jest --passWithNoTests --findRelatedTests $(git diff --staged --name-only)"
   },
   "repository": {
@@ -51,7 +50,6 @@
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
-    "jest-junit": "^9.0.0",
     "lint-staged": "^9.4.3",
     "prettier": "^1.19.1",
     "ts-jest": "^24.2.0",
