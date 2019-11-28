@@ -38,13 +38,10 @@ export function nextStandardVersion(
         });
 
         if (!nextVersion) {
-          console.error(
-            'Could not get a valid next version from standard-version'
-          );
+          reject('Could not get a valid next version from standard-version');
         }
       })
       .catch(error => {
-        console.error(`standard-version failed with message: ${error.message}`);
         reject(error);
       });
   });
