@@ -2,13 +2,22 @@
   "name": "template",
   "version": "0.1.0",
   "description": "GitHub template repository.",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "bin": {
+    "next-standard-version": "dist/bin/next-standard-version.js"
+  },
+  "files": [
+    "dist/**/!(*.test).{js,d.ts}"
+  ],
   "scripts": {
     "lint": "eslint --ignore-path .prettierignore --ext .ts,.tsx,.js,.jsx,.json .",
     "format": "concurrently \"npm:format:default\"",
     "format:default": "prettier --write \"**/*.{js,jsx,vue,ts,css,less,scss,html,htm,json,md,markdown,yml,yaml}\"",
     "format-file:default": "prettier --write",
     "release": "standard-version --sign",
-    "release:publish": "git push --follow-tags"
+    "release:publish": "git push --follow-tags",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -20,7 +29,11 @@
     "url": "https://github.com/vidavidorra/template/issues"
   },
   "homepage": "https://github.com/vidavidorra/template#readme",
-  "dependencies": {},
+  "dependencies": {
+    "semver": "^6.3.0",
+    "standard-version": "^7.0.1",
+    "strip-ansi": "^6.0.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
@@ -34,7 +47,6 @@
     "husky": "^3.1.0",
     "lint-staged": "^9.4.3",
     "prettier": "^1.19.1",
-    "standard-version": "^7.0.1",
     "typescript": "^3.7.2"
   }
 }
