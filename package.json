@@ -17,7 +17,11 @@
     "format-file:default": "prettier --write",
     "release": "standard-version --sign",
     "release:publish": "git push --follow-tags",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "jest",
+    "test:ci": "jest --ci --reporters=default --reporters=jest-junit --coverage --coverageReporters=text --coverageReporters=cobertura",
+    "test:coverage": "jest --coverage --coverageDirectory=./coverage --coverageReporters=text --coverageReporters=lcov",
+    "test:staged": "jest --passWithNoTests --findRelatedTests $(git diff --staged --name-only)"
   },
   "repository": {
     "type": "git",
@@ -37,6 +41,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "@types/jest": "^24.0.23",
     "@typescript-eslint/eslint-plugin": "^2.9.0",
     "@typescript-eslint/parser": "^2.9.0",
     "concurrently": "^5.0.0",
@@ -45,8 +50,11 @@
     "eslint-plugin-json": "^2.0.1",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.1.0",
+    "jest": "^24.9.0",
+    "jest-junit": "^9.0.0",
     "lint-staged": "^9.4.3",
     "prettier": "^1.19.1",
+    "ts-jest": "^24.2.0",
     "typescript": "^3.7.2"
   }
 }
