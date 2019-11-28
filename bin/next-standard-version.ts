@@ -6,4 +6,4 @@ nextStandardVersion()
   .then((newVersion: string) => {
     console.log(newVersion);
   })
-  .catch(error => console.log(error));
+  .catch(error => console.error(error));
