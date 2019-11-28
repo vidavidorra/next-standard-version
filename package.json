@@ -18,7 +18,7 @@
     "release": "standard-version --sign",
     "release:publish": "git push --follow-tags",
     "build": "tsc",
-    "test": "jest --coverage --coverageDirectory=./coverage --coverageReporters=text --coverageReporters=lcov",
+    "test": "jest --coverage --coverageReporters=text --coverageReporters=lcov",
     "test:ci": "jest --ci --coverage --coverageReporters=text --coverageReporters=cobertura",
     "test:staged": "jest --passWithNoTests --findRelatedTests $(git diff --staged --name-only)"
   },
