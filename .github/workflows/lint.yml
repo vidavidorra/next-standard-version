@@ -5,11 +5,13 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup node
+        uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-      - name: Setup node
+      - name: Install project
         run: npm ci
       - name: Lint
         run: npm run lint
