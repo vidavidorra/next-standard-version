@@ -1,7 +1,7 @@
 {
-  "name": "template",
+  "name": "next-standard-version",
   "version": "0.1.0",
-  "description": "GitHub template repository.",
+  "description": "Get the next Standard Version of a project.",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
   "bin": {
@@ -24,14 +24,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vidavidorra/template.git"
+    "url": "git+https://github.com/vidavidorra/next-standard-version.git"
   },
   "author": "Jeroen de Bruijn",
   "license": "GPL-3.0-or-later",
   "bugs": {
-    "url": "https://github.com/vidavidorra/template/issues"
+    "url": "https://github.com/vidavidorra/next-standard-version/issues"
   },
-  "homepage": "https://github.com/vidavidorra/template#readme",
+  "homepage": "https://github.com/vidavidorra/next-standard-version#readme",
   "dependencies": {
     "semver": "^6.3.0",
     "standard-version": "^7.0.1",
