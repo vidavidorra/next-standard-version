@@ -7,9 +7,7 @@ console.info = function(message: string): void {
   logs.push(stripAnsi(message));
 };
 
-export function nextStandardVersion(
-  preset: 'angular' | 'conventionalcommits' = 'conventionalcommits'
-): Promise<string> {
+export function nextStandardVersion(): Promise<string> {
   return new Promise((resolve, reject) => {
     standardVersion({
       dryRun: true,
@@ -19,7 +17,6 @@ export function nextStandardVersion(
         commit: true,
         tag: true,
       },
-      preset,
     })
       .then(() => {
         const nextVersionPattern = /bumping version in .* from .* to (.*)/;
