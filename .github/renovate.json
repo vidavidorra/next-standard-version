@@ -2,6 +2,12 @@
   "extends": [
     "config:base",
     ":timezone(Europe/Amsterdam)",
-    ":assignAndReview(vidavidorra)"
+    ":assignee(vidavidorra)"
+  ],
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "automerge": true
+    }
   ]
 }
