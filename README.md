@@ -1,6 +1,6 @@
 # Next Standard Version
 
-Get the next Standard Version of a project.
+Get the next [Standard Version](https://github.com/conventional-changelog/standard-version) of a project.
 
 ## Table of contents
 
@@ -33,7 +33,7 @@ Get the next Standard Version of a project.
 
 ### Install
 
-Install next-standard-version either in a project or globally.
+Install `next-standard-version` locally in a project or globally.
 
 ```shell
 $ npm install --save-dev next-standard-version
@@ -45,14 +45,14 @@ $ npm install --global next-standard-version
 
 ### CLI usage
 
-If next-standard-version is installed globally, simply run the following command to get the next standard-version of the project in the working directory.
+If `next-standard-version` is installed globally, simply run the following command to get the next Standard Version of the project in the working directory.
 
 ```shell
 $ next-standard-version
 1.0.1
 ```
 
-If next-standard-version is installed locally in a project, `npx`, which is available alongside `npm` since [v5.2.0](https://github.com/npm/npm/releases/tag/v5.2.0), can be used to get get the next standard-version of the project in the working directory.
+If `next-standard-version` is installed locally in a project, `npx`, which is available alongside `npm` since [v5.2.0](https://github.com/npm/npm/releases/tag/v5.2.0), can be used to get get the next Standard Version of the project in the working directory.
 
 ```shell
 $ npx --no-install next-standard-version
@@ -63,10 +63,12 @@ $ npx --no-install next-standard-version
 
 ### API usage
 
-Next standard-version only has one function: `nextStandardVersion`. The function returns a promise, which will resolve to a string containing the next standard-version. The promise will be rejected if there is an error getting the next standard-version.
+`next-standard-version` has one function: `nextStandardVersion`. The function returns a promise, which will resolve to a string containing the next Standard Version. The promise will be rejected if there is an error getting the next Standard Version.
 
 <details><summary>Example (click to expand).</summary>
-The example below shows how next-standard-version can be used in TypeScript. This example simply prints the next standard-version to the console.
+<p>
+
+The example below shows how `next-standard-version` can be used in TypeScript. This example simply prints the next Standard Version to the console.
 
 ```typescript
 import { nextStandardVersion } from 'next-standard-version';
