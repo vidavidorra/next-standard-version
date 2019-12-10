@@ -29,6 +29,8 @@ Get the next [Standard Version](https://github.com/conventional-changelog/standa
 
 ## Documentation
 
+`next-standard-version` internally uses [Standard Version (`standard-version`)](https://github.com/conventional-changelog/standard-version) to get the next Standard Version. This guarantees that the exact same next Standard Version is returned as Standard Version would be using for the next release.
+
 <a name="install"></a>
 
 ### Install
