@@ -92,6 +92,9 @@ This project is licensed under the [GPLv3 license](https://www.gnu.org/licenses/
 
 Copyright © 2019 Jeroen de Bruijn
 
+<details><summary>Click to expand the license details.</summary>
+<p>
+
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -106,3 +109,5 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 The full text of the license is available in the _LICENSE.md_ file in this repository and [online](https://www.gnu.org/licenses/gpl.html).
+
+</details>
