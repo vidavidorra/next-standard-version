@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "config:base",
+    ":timezone(Europe/Amsterdam)",
+    ":assignAndReview(vidavidorra)"
+  ]
+}
