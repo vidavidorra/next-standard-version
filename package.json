@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/vidavidorra/next-standard-version#readme",
   "dependencies": {
-    "semver": "^6.3.0",
+    "semver": "^7.0.0",
     "standard-version": "^7.0.1",
     "strip-ansi": "^6.0.0"
   },
