@@ -29,7 +29,7 @@ Get the next [Standard Version](https://github.com/conventional-changelog/standa
 
 ## Documentation
 
-`next-standard-version` internally uses [Standard Version (`standard-version`)](https://github.com/conventional-changelog/standard-version) to get the next Standard Version. This guarantees that the exact same next Standard Version is returned as Standard Version would be using for the next release.
+`next-standard-version` internally uses its own [Standard Version (`standard-version`)](https://github.com/conventional-changelog/standard-version) to get the next Standard Version. When using `next-standard-version` in a local project, this means the used version of Standard Version can differ. That shouldn't be an issue if both use the same major version of Standard Version. `next-standard-version` strives to use the latest Standard Version so, therefore, it is highly recommended to use the latest version of Standard Version in the local project as well. If you do run into any problems, please [open an issue](https://github.com/vidavidorra/next-standard-version/issues/new).
 
 <a name="install"></a>
 
@@ -92,7 +92,7 @@ This project is licensed under the [GPLv3 license](https://www.gnu.org/licenses/
 
 Copyright © 2019 Jeroen de Bruijn
 
-<details><summary>Click to expand the license details.</summary>
+<details><summary>License details (click to expand).</summary>
 <p>
 
 This program is free software: you can redistribute it and/or modify
@@ -108,6 +108,6 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-The full text of the license is available in the _LICENSE.md_ file in this repository and [online](https://www.gnu.org/licenses/gpl.html).
+The full text of the license is available in the [LICENSE](LICENSE.md) file in this repository and [online](https://www.gnu.org/licenses/gpl.html).
 
 </details>
