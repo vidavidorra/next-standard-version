@@ -3,5 +3,11 @@
     "config:base",
     ":timezone(Europe/Amsterdam)",
     ":assignee(vidavidorra)"
+  ],
+  "packageRules": [
+    {
+      "depTypeList": ["devDependencies"],
+      "extends": ["schedule:weekly"]
+    }
   ]
 }
