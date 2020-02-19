@@ -90,7 +90,7 @@ nextStandardVersion()
 
 This project is licensed under the [GPLv3 license](https://www.gnu.org/licenses/gpl.html).
 
-Copyright © 2019 Jeroen de Bruijn
+Copyright © 2019-2020 Jeroen de Bruijn
 
 <details><summary>License details (click to expand).</summary>
 <p>
