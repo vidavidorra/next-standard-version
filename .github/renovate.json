@@ -6,8 +6,12 @@
   ],
   "packageRules": [
     {
+      "depTypeList": ["dependencies"],
+      "schedule": ["at any time"]
+    },
+    {
       "depTypeList": ["devDependencies"],
-      "extends": ["schedule:weekly"]
+      "schedule": ["before 6am on Monday, Wednesday and Friday"]
     }
   ]
 }
