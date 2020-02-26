@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/vidavidorra/next-standard-version/compare/v1.0.1...v1.0.2) (2020-02-26)
+
+### Bug Fixes
+
+- **deps:** pin dependencies ([#52](https://github.com/vidavidorra/next-standard-version/issues/52)) ([a5a8d0c](https://github.com/vidavidorra/next-standard-version/commit/a5a8d0c2dcfbaf8985e3ad6750e4be5b84d72f59))
+- **deps:** update dependency semver to v7.1.3 ([#53](https://github.com/vidavidorra/next-standard-version/issues/53)) ([b33081c](https://github.com/vidavidorra/next-standard-version/commit/b33081c1235a98804df4ebc66f4d15effe0ca3a7))
+- **deps:** update dependency standard-version to v7.1.0 ([#54](https://github.com/vidavidorra/next-standard-version/issues/54)) ([26a8459](https://github.com/vidavidorra/next-standard-version/commit/26a8459f6f2c603c4e978c6f140007aedfc2142b))
+- remove `git add` from lint-staged ([96378fd](https://github.com/vidavidorra/next-standard-version/commit/96378fd64cab715ff8464a79924be70a17bbfc89))
+
 ### [1.0.1](https://github.com/vidavidorra/next-standard-version/compare/v1.0.0...v1.0.1) (2019-12-16)
 
 ### Bug Fixes
