@@ -1,14 +1,11 @@
 {
   "extends": [
     "config:base",
+    ":pinDependencies",
     ":timezone(Europe/Amsterdam)",
     ":assignee(vidavidorra)"
   ],
   "packageRules": [
-    {
-      "depTypeList": ["dependencies"],
-      "schedule": ["at any time"]
-    },
     {
       "depTypeList": ["devDependencies"],
       "schedule": ["before 6am on Monday, Wednesday and Friday"]
