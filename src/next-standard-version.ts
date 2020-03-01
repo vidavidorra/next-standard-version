@@ -38,7 +38,7 @@ export function nextStandardVersion(): Promise<string> {
           reject('Could not get a valid next version from standard-version');
         }
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });

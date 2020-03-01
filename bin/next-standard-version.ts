@@ -1,9 +1,6 @@
 #!/usr/bin/env node
 
-import { nextStandardVersion } from '../src';
+import { Cli } from '../src/cli';
 
-nextStandardVersion()
-  .then((newVersion: string) => {
-    console.log(newVersion);
-  })
-  .catch(error => console.error(error));
+const cli = new Cli();
+cli.Run(process.argv.splice(2));
