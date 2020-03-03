@@ -20,7 +20,7 @@
     "release:message": "chalk -t \"Run {green.bold git push} to publish the release or {red.bold git reset HEAD^} to undo the release.\"",
     "release": "run-s release:changelog release:commit release:message",
     "build": "tsc",
-    "test": "jest --coverage --coverageReporters=text --coverageReporters=lcov",
+    "test": "jest --coverage --coverageReporters=text --coverageReporters=lcov --verbose",
     "test:ci": "jest --ci --coverage --coverageReporters=text --coverageReporters=cobertura",
     "test:staged": "jest --passWithNoTests --findRelatedTests $(git diff --staged --name-only)"
   },

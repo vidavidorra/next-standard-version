@@ -22,45 +22,35 @@ export function nextStandardVersion(options: Options): Promise<string> {
 
     import(standardVersionPackage)
       .then((standardVersion) => {
-        standardVersion
-          .default({
-            dryRun: true,
-            silent: false,
-            skip: {
-              changelog: true,
-              commit: true,
-              tag: true,
-            },
-          })
-          .then(() => {
-            const nextVersionPattern = /bumping version in .* from .* to (.*)/;
-            let nextVersion: string;
+        return standardVersion.default({
+          dryRun: true,
+          silent: false,
+          skip: {
+            changelog: true,
+            commit: true,
+            tag: true,
+          },
+        });
+      })
+      .then(() => {
+        const nextVersionPattern = /bumping version in .* from .* to (.*)/;
+        let nextVersion: string;
 
-            logs.some((line: string): boolean => {
-              const match = nextVersionPattern.exec(line);
-              if (
-                match !== null &&
-                match.length == 2 &&
-                semver.valid(match[1])
-              ) {
-                nextVersion = match[1];
+        logs.some((line: string): boolean => {
+          const match = nextVersionPattern.exec(line);
+          if (match !== null && match.length == 2 && semver.valid(match[1])) {
+            nextVersion = match[1];
 
-                resolve(nextVersion);
-                return true;
-              }
+            resolve(nextVersion);
+            return true;
+          }
 
-              return false;
-            });
+          return false;
+        });
 
-            if (!nextVersion) {
-              reject(
-                'Could not get a valid next version from standard-version'
-              );
-            }
-          })
-          .catch((error) => {
-            reject(error);
-          });
+        if (!nextVersion) {
+          reject('Could not get a valid next version from standard-version');
+        }
       })
       .catch((error) => {
         reject(error);
