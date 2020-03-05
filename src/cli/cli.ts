@@ -3,20 +3,17 @@ import yargs from 'yargs';
 
 export class Cli {
   public async Run(argv: string[]): Promise<void> {
-    try {
-      const options = await this.Parse(argv);
+    const options = this.Parse(argv);
 
-      nextStandardVersion(options)
-        .then((version: string) => {
-          console.log(version);
-        })
-        .catch((error) => {
-          throw error;
-        });
-    } catch (error) {
-      console.error(error);
-      process.exit(1);
-    }
+    return nextStandardVersion(options)
+      .then((version: string) => {
+        console.log(version);
+        process.exit(0);
+      })
+      .catch((error) => {
+        console.error(error);
+        process.exit(1);
+      });
   }
 
   private Parse(argv: string[]): Options {
