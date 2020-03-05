@@ -1,23 +1,37 @@
+import path from 'path';
 import semver from 'semver';
-import standardVersion from 'standard-version';
 import stripAnsi from 'strip-ansi';
 
-const logs: string[] = [];
-console.info = function(message: string): void {
-  logs.push(stripAnsi(message));
-};
+export interface Options {
+  modulesPath: string;
+  packaged?: boolean;
+}
 
-export function nextStandardVersion(): Promise<string> {
+export function nextStandardVersion(options: Options): Promise<string> {
   return new Promise((resolve, reject) => {
-    standardVersion({
-      dryRun: true,
-      silent: false,
-      skip: {
-        changelog: true,
-        commit: true,
-        tag: true,
-      },
-    })
+    const logs: string[] = [];
+    console.info = function(message: string): void {
+      logs.push(stripAnsi(message));
+    };
+
+    let standardVersionPackage = 'standard-version';
+
+    if (!options.packaged) {
+      standardVersionPackage = path.resolve(options.modulesPath);
+    }
+
+    import(standardVersionPackage)
+      .then((standardVersion) => {
+        return standardVersion.default({
+          dryRun: true,
+          silent: false,
+          skip: {
+            changelog: true,
+            commit: true,
+            tag: true,
+          },
+        });
+      })
       .then(() => {
         const nextVersionPattern = /bumping version in .* from .* to (.*)/;
         let nextVersion: string;
@@ -38,7 +52,7 @@ export function nextStandardVersion(): Promise<string> {
           reject('Could not get a valid next version from standard-version');
         }
       })
-      .catch(error => {
+      .catch((error) => {
         reject(error);
       });
   });
