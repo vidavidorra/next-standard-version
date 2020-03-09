@@ -22,6 +22,14 @@ export class Cli {
       .scriptName('next-standard-version')
       .usage('Get the next Standard Version of a project')
       .example('$0', 'Print the next standard version')
+      .example(
+        '$0 --modulesPath ./node_modules/standard-version',
+        'Print the next standard version using the standard-version package specified to by the module path'
+      )
+      .example(
+        '$0 --packaged',
+        'Print the next standard version using the packaged standard-version'
+      )
       .options({
         modulesPath: {
           alias: 'm',
