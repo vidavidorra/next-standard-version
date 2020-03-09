@@ -115,11 +115,15 @@ The example below shows how `next-standard-version` can be used in TypeScript. T
 ```typescript
 import { nextStandardVersion } from 'next-standard-version';
 
-nextStandardVersion()
-  .then((newVersion: string) => {
-    console.log(`The new version is: '${newVersion}'`);
+nextStandardVersion({
+  modulePath: './node_modules/standard-version',
+})
+  .then((version: string) => {
+    console.log(version);
   })
-  .catch((error) => console.error(error));
+  .catch((error) => {
+    console.error(error);
+  });
 ```
 
 </details>
