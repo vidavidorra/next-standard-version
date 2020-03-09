@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/vidavidorra/next-standard-version/compare/v1.0.2...v2.0.0) (2020-03-09)
+
+### ⚠ BREAKING CHANGES
+
+- **cli:** Default standard-version is an external standard-version in node_modules.
+
+The old behaviour (using the packaged standard-version) can be accomplished by providing the `packaged` option.
+
+### Features
+
+- **cli:** add CLI ([752f017](https://github.com/vidavidorra/next-standard-version/commit/752f017a0af124dad7d2beab0c0f4d56c7663957))
+- **cli:** add options to use an external standard-version ([ff29c23](https://github.com/vidavidorra/next-standard-version/commit/ff29c232bf80c2a6de718b3a49687b4f7dccd790))
+
+### Bug Fixes
+
+- **cli:** rename modulesPath option to modulePath ([a017101](https://github.com/vidavidorra/next-standard-version/commit/a0171017a93ff6eb46cd5a873b99ba52f9fbef3b))
+- concat promises in nextStandardVersion ([6c4977c](https://github.com/vidavidorra/next-standard-version/commit/6c4977c984bf700dc433ed3df2e67a2827f6b130))
+
 ### [1.0.2](https://github.com/vidavidorra/next-standard-version/compare/v1.0.1...v1.0.2) (2020-02-26)
 
 ### Bug Fixes
