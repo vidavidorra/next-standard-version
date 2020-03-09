@@ -1,6 +1,6 @@
 module.exports = {
   '*.{ts,tsx,js,jsx,json}': [
-    'npm run lint',
+    'npm run lint-file',
     'npm run format-file:default',
     'npm run test:staged',
   ],
