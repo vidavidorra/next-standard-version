@@ -29,11 +29,16 @@ Get the next [Standard Version](https://github.com/conventional-changelog/standa
 
 ## Documentation
 
-`next-standard-version` internally uses its own [Standard Version (`standard-version`)](https://github.com/conventional-changelog/standard-version) to get the next Standard Version. When using `next-standard-version` in a local project, this means the used version of Standard Version can differ. That shouldn't be an issue if both use the same major version of Standard Version. `next-standard-version` strives to use the latest Standard Version so, therefore, it is highly recommended to use the latest version of Standard Version in the local project as well. If you do run into any problems, please [open an issue](https://github.com/vidavidorra/next-standard-version/issues/new).
+`next-standard-version` has two methods of using [Standard Version (`standard-version`)](https://github.com/conventional-changelog/standard-version) to get the next version.
+
+1. Using the standard-version of the project to get the next Standard Version from (default; see [CLI usage](#cli)).
+2. Using the packaged standard-version.
+
+While this project aims to always have the latest version of standard-version, the first option guarantees that the standard-version used to get the next version is the exact same as the standard-version used to make the actual release. Using the second option, there might be a mismatch between the versions of standard-version and is could result in a different release version in case of a difference in the major version of standard-version.
 
 <a name="install"></a>
 
-### Install
+### Installation
 
 Install `next-standard-version` locally in a project or globally.
 
@@ -47,17 +52,52 @@ $ npm install --global next-standard-version
 
 ### CLI usage
 
-If `next-standard-version` is installed globally, simply run the following command to get the next Standard Version of the project in the working directory.
+```shell
+$ next-standard-version --help
+Get the next Standard Version of a project
+
+Options:
+  --help, -h                                                           [boolean]
+  --version, -v                                                        [boolean]
+  --modulePath, -m  Path to standard-version module
+                           [string] [default: "./node_modules/standard-version"]
+  --packaged, -p    Use the packaged standard-version                  [boolean]
+
+Examples:
+  next-standard-version                     Print the next Standard Version
+  next-standard-version --modulePath        Print the next Standard Version
+  ./node_modules/standard-version           using the standard-version package
+                                            specified to by the module path
+  next-standard-version --packaged          Print the next Standard Version
+                                            using the packaged standard-version
+```
+
+Example from global installation.
 
 ```shell
 $ next-standard-version
 1.0.1
 ```
 
-If `next-standard-version` is installed locally in a project, `npx`, which is available alongside `npm` since [v5.2.0](https://github.com/npm/npm/releases/tag/v5.2.0), can be used to get get the next Standard Version of the project in the working directory.
+Example from local installation as command.
 
 ```shell
-$ npx --no-install next-standard-version
+$ npx --no-install next-standard-version  # From project root
+1.0.1
+```
+
+Example from local installation as npm script with the following in `package.json`.
+
+```json
+{
+  "scripts": {
+    "next-version": "next-standard-version"
+  }
+}
+```
+
+```shell
+$ npm run next-version
 1.0.1
 ```
 
@@ -67,7 +107,7 @@ $ npx --no-install next-standard-version
 
 `next-standard-version` has one function: `nextStandardVersion`. The function returns a promise, which will resolve to a string containing the next Standard Version. The promise will be rejected if there is an error getting the next Standard Version.
 
-<details><summary>Example (click to expand).</summary>
+<details><summary>Example.</summary>
 <p>
 
 The example below shows how `next-standard-version` can be used in TypeScript. This example simply prints the next Standard Version to the console.
@@ -79,7 +119,7 @@ nextStandardVersion()
   .then((newVersion: string) => {
     console.log(`The new version is: '${newVersion}'`);
   })
-  .catch(error => console.error(error));
+  .catch((error) => console.error(error));
 ```
 
 </details>
@@ -92,7 +132,7 @@ This project is licensed under the [GPLv3 license](https://www.gnu.org/licenses/
 
 Copyright © 2019-2020 Jeroen de Bruijn
 
-<details><summary>License details (click to expand).</summary>
+<details><summary>License details.</summary>
 <p>
 
 This program is free software: you can redistribute it and/or modify
@@ -111,3 +151,5 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 The full text of the license is available in the [LICENSE](LICENSE.md) file in this repository and [online](https://www.gnu.org/licenses/gpl.html).
 
 </details>
+
+[#cli]:
