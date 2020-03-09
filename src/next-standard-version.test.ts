@@ -50,10 +50,10 @@ describe('nextStandardVersion', (): void => {
   });
 
   describe.each([
-    ['the packaged', { modulesPath: '', packaged: true }],
+    ['the packaged', { modulePath: '', packaged: true }],
     [
       'an external',
-      { modulesPath: 'node_modules/standard-version', packaged: false },
+      { modulePath: 'node_modules/standard-version', packaged: false },
     ],
   ])('With %s standard-version', (name, options) => {
     test("Rejects if it couldn't find a version in the standard-version output", (): Promise<

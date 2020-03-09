@@ -3,7 +3,7 @@ import semver from 'semver';
 import stripAnsi from 'strip-ansi';
 
 export interface Options {
-  modulesPath: string;
+  modulePath: string;
   packaged?: boolean;
 }
 
@@ -17,7 +17,7 @@ export function nextStandardVersion(options: Options): Promise<string> {
     let standardVersionPackage = 'standard-version';
 
     if (!options.packaged) {
-      standardVersionPackage = path.resolve(options.modulesPath);
+      standardVersionPackage = path.resolve(options.modulePath);
     }
 
     import(standardVersionPackage)

@@ -96,7 +96,7 @@ describe('Cli', (): void => {
     });
 
     test.each([
-      ['--modulesPath', 'node_modules/standard-version'],
+      ['--modulePath', 'node_modules/standard-version'],
       ['-m', 'node_modules/standard-version'],
       ['--packaged', 'true'],
       ['-p', 'true'],
