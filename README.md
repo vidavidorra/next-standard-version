@@ -6,7 +6,7 @@ Get the next [Standard Version](https://github.com/conventional-changelog/standa
 
 - [Badges](#badges)
 - [Documentation](#documentation)
-  - [Install](#install)
+  - [Installation](#installation)
   - [CLI](#cli)
   - [API](#api)
 - [License](#license)
@@ -31,12 +31,12 @@ Get the next [Standard Version](https://github.com/conventional-changelog/standa
 
 `next-standard-version` has two methods of using [Standard Version (`standard-version`)](https://github.com/conventional-changelog/standard-version) to get the next version.
 
-1. Using the standard-version of the project to get the next Standard Version from (default; see [CLI usage](#cli)).
+1. Using the standard-version of the project to get the next Standard Version from (default; see [CLI](#cli)).
 2. Using the packaged standard-version.
 
 While this project aims to always have the latest version of standard-version, the first option guarantees that the standard-version used to get the next version is the exact same as the standard-version used to make the actual release. Using the second option, there might be a mismatch between the versions of standard-version and is could result in a different release version in case of a difference in the major version of standard-version.
 
-<a name="install"></a>
+<a name="installation"></a>
 
 ### Installation
 
@@ -50,7 +50,7 @@ $ npm install --global next-standard-version
 
 <a name="cli"></a>
 
-### CLI usage
+### CLI
 
 ```shell
 $ next-standard-version --help
@@ -72,38 +72,45 @@ Examples:
                                             using the packaged standard-version
 ```
 
-Example from global installation.
+<details><summary>Examples.</summary>
+<p>
 
-```shell
-$ next-standard-version
-1.0.1
-```
+- Run from global installation.
 
-Example from local installation as command.
+  ```shell
+  $ next-standard-version  # From project root
+  1.0.1
+  ```
 
-```shell
-$ npx --no-install next-standard-version  # From project root
-1.0.1
-```
+- Run from local installation.
 
-Example from local installation as npm script with the following in `package.json`.
+  ```shell
+  $ npx --no-install next-standard-version  # From project root
+  1.0.1
+  ```
 
-```json
-{
-  "scripts": {
-    "next-version": "next-standard-version"
+- Run from local installation as npm script with the following in `package.json`.
+
+  ```json
+  {
+    "scripts": {
+      "next-version": "next-standard-version"
+    }
   }
-}
-```
+  ```
 
-```shell
-$ npm run next-version
-1.0.1
-```
+  And run.
+
+  ```shell
+  $ npm run next-version  # From project root
+  1.0.1
+  ```
+
+</details>
 
 <a name="api"></a>
 
-### API usage
+### API
 
 `next-standard-version` has one function: `nextStandardVersion`. The function returns a promise, which will resolve to a string containing the next Standard Version. The promise will be rejected if there is an error getting the next Standard Version.
 
