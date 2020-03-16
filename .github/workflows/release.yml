@@ -40,7 +40,7 @@ jobs:
       - name: Build (artifacts)
         run: npm run build
       - name: Push release
-        uses: ad-m/github-push-action@v0
+        uses: ad-m/github-push-action@v0.5.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish
