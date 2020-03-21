@@ -20,27 +20,33 @@ export class Cli {
     const args = yargs
       .strict(true)
       .scriptName('next-standard-version')
-      .usage('Get the next Standard Version of a project')
-      .example('$0', 'Print the next Standard Version')
+      .usage('Get the next Standard Version of a project.')
+      .example('$0', 'Print the next Standard Version.')
       .example(
         '$0 --modulePath ./node_modules/standard-version',
-        'Print the next Standard Version using the standard-version package specified to by the module path'
+        [
+          'Print the next Standard Version using the standard-version package',
+          'specified to by the module path.',
+        ].join(' ')
       )
       .example(
         '$0 --packaged',
-        'Print the next Standard Version using the packaged standard-version'
+        'Print the next Standard Version using the packaged standard-version.'
       )
       .options({
         modulePath: {
           alias: 'm',
-          describe: 'Path to standard-version module',
+          describe: 'Path to standard-version module.',
           type: 'string',
           default: './node_modules/standard-version',
           requiresArg: true,
         },
         packaged: {
           alias: 'p',
-          describe: 'Use the packaged standard-version',
+          describe: [
+            'Use the packaged standard-version.',
+            'Note that this silently overrides the modulePath option.',
+          ].join('\n'),
           type: 'boolean',
         },
         version: {

@@ -57,22 +57,24 @@ $ npm install --global next-standard-version
 
 ```shell
 $ next-standard-version --help
-Get the next Standard Version of a project
+Get the next Standard Version of a project.
 
 Options:
   --help, -h                                                           [boolean]
   --version, -v                                                        [boolean]
-  --modulePath, -m  Path to standard-version module
+  --modulePath, -m  Path to standard-version module.
                            [string] [default: "./node_modules/standard-version"]
-  --packaged, -p    Use the packaged standard-version                  [boolean]
+  --packaged, -p    Use the packaged standard-version.
+                    Note that this silently overrides the modulePath option.
+                                                                       [boolean]
 
 Examples:
-  next-standard-version                     Print the next Standard Version
-  next-standard-version --modulePath        Print the next Standard Version
+  next-standard-version                     Print the next Standard Version.
+  next-standard-version --modulePath        Print the next Standard Version.
   ./node_modules/standard-version           using the standard-version package
-                                            specified to by the module path
+                                            specified to by the module path.
   next-standard-version --packaged          Print the next Standard Version
-                                            using the packaged standard-version
+                                            using the packaged standard-version.
 ```
 
 <details><summary>Examples.</summary>
