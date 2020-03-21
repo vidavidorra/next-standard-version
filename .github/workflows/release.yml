@@ -56,6 +56,10 @@ jobs:
             See the the [changelog](
               https://github.com/${{ github.repository }}/blob/master/CHANGELOG.md
             ) for the changes included in this release.
+      - name: Publish npm package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
   prevent_failed_status:
     name: Prevent failed status when skipped
     runs-on: ubuntu-latest
