@@ -2,6 +2,8 @@
 
 Get the next [Standard Version](https://github.com/conventional-changelog/standard-version) of a project.
 
+<a name="toc"></a>
+
 ## Table of contents
 
 - [Badges](#badges)
@@ -19,6 +21,7 @@ Get the next [Standard Version](https://github.com/conventional-changelog/standa
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | -------------------- |
 | <a href="https://github.com/prettier/prettier#readme"><img alt="code style" src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square"></a>                                                                           | Code style           | Prettier             |
 | <a href="https://conventionalcommits.org"><img alt="Conventional Commits: 1.0.0" src="https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg?style=flat-square"></a>                                                             | Commit style         | Conventional Commits |
+| <a href="https://renovatebot.com"><img alt="Renovate enabled" src="https://img.shields.io/badge/renovate-enabled-brightgreen.svg?style=flat-square"></a>                                                                                       | Dependencies         | Renovate             |
 | <a href="https://codecov.io/gh/vidavidorra/next-standard-version"><img alt="Code coverage" src="https://img.shields.io/codecov/c/github/vidavidorra/next-standard-version/master?style=flat-square"></a>                                       | Code coverage        | Codecov              |
 | <a href="https://github.com/vidavidorra/next-standard-version/actions"><img alt="GitHub workflow status" src="https://img.shields.io/github/workflow/status/vidavidorra/next-standard-version/Lint%20commit%20messages?style=flat-square"></a> | Lint commit messages | GitHub Actions       |
 | <a href="https://github.com/vidavidorra/next-standard-version/actions"><img alt="GitHub workflow status" src="https://img.shields.io/github/workflow/status/vidavidorra/next-standard-version/Lint?style=flat-square"></a>                     | Lint                 | GitHub Actions       |
