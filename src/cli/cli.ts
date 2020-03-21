@@ -36,6 +36,7 @@ export class Cli {
           describe: 'Path to standard-version module',
           type: 'string',
           default: './node_modules/standard-version',
+          requiresArg: true,
         },
         packaged: {
           alias: 'p',
