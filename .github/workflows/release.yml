@@ -25,6 +25,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install project
         run: npm ci
+      - name: Build (artefacts)
+        run: |
+          npm run build
+          npm link
       - name: Release as major
         if: endsWith(github.event.commits[0].message, '[ci release][major]')
         run: npx --no-install standard-version --release-as major
@@ -36,17 +40,22 @@ jobs:
         run: npx --no-install standard-version --release-as patch
       - name: Release
         if: endsWith(github.event.commits[0].message, '[ci release]')
-        run: npx --no-install standard-version
-      - name: Build (artifacts)
-        run: npm run build
-      - name: Push release
-        uses: ad-m/github-push-action@v0.5.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Publish
-        run: npm publish
+        run: |
+          echo "::set-env name=NEXT_VERSION::$(next-standard-version --silent)"
+          npx --no-install standard-version
+      - name: Publish release artefacts
+        run: git push --follow-tags
+      - name: Publish GitHub release
+        uses: actions/create-release@v1.0.1
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.NEXT_VERSION }}
+          release_name: v${{ env.NEXT_VERSION }}
+          body: |
+            See the the [changelog](
+              https://github.com/${{ github.repository }}/blob/master/CHANGELOG.md
+            ) for the changes included in this release.
   prevent_failed_status:
     name: Prevent failed status when skipped
     runs-on: ubuntu-latest
