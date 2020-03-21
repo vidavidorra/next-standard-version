@@ -41,7 +41,7 @@ jobs:
       - name: Release
         if: endsWith(github.event.commits[0].message, '[ci release]')
         run: |
-          echo "::set-env name=NEXT_VERSION::$(next-standard-version --silent)"
+          echo "::set-env name=NEXT_VERSION::$(next-standard-version)"
           npx --no-install standard-version
       - name: Publish release artefacts
         run: git push --follow-tags
