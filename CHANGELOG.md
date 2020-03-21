@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.2](https://github.com/vidavidorra/next-standard-version/compare/v2.0.1...v2.0.2) (2020-03-21)
+
+### Bug Fixes
+
+- **cli:** require argument on the modulePath option ([ba4e60a](https://github.com/vidavidorra/next-standard-version/commit/ba4e60aa8ac8ca9dc96ef6f514ed773693d96ee9))
+
 ### [2.0.1](https://github.com/vidavidorra/next-standard-version/compare/v2.0.0...v2.0.1) (2020-03-16)
 
 ### Bug Fixes
