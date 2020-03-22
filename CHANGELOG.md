@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/vidavidorra/next-standard-version/compare/v2.0.2...v2.1.0) (2020-03-22)
+
+### Features
+
+- add releaseAs option specify the release type manually ([737833c](https://github.com/vidavidorra/next-standard-version/commit/737833cdd906471292eb83f922e68020dbd53a52))
+
+### Bug Fixes
+
+- make modulePath option optional ([fbb7f97](https://github.com/vidavidorra/next-standard-version/commit/fbb7f97ef6a5902f3cfc7597414ca430af6e44ff))
+- **cli:** add note about option packaged overruling modulePath ([e60c419](https://github.com/vidavidorra/next-standard-version/commit/e60c419d1d23a88dcd37ece59df9f6cfa1f7a257))
+
 ### [2.0.2](https://github.com/vidavidorra/next-standard-version/compare/v2.0.1...v2.0.2) (2020-03-21)
 
 ### Bug Fixes
