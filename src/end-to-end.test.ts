@@ -21,22 +21,10 @@ describe('nextStandardVersion', (): void => {
 
   describe('Resolves the next version using the packaged standard-version', (): void => {
     test.each([
-      [
-        'without options',
-        { modulePath: '', packaged: true, releaseAs: undefined },
-      ],
-      [
-        'with option releaseAs=major',
-        { modulePath: '', packaged: true, releaseAs: 'major' },
-      ],
-      [
-        'with option releaseAs=minor',
-        { modulePath: '', packaged: true, releaseAs: 'minor' },
-      ],
-      [
-        'with option releaseAs=patch',
-        { modulePath: '', packaged: true, releaseAs: 'patch' },
-      ],
+      ['without options', { packaged: true, releaseAs: undefined }],
+      ['with option releaseAs=major', { packaged: true, releaseAs: 'major' }],
+      ['with option releaseAs=minor', { packaged: true, releaseAs: 'minor' }],
+      ['with option releaseAs=patch', { packaged: true, releaseAs: 'patch' }],
     ])(
       '%s',
       (name: string, options): Promise<boolean | void> => {

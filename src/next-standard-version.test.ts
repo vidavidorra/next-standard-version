@@ -56,33 +56,46 @@ describe('nextStandardVersion', (): void => {
       { modulePath: 'node_modules/standard-version', packaged: false },
     ],
   ])('With %s standard-version', (name, options) => {
-    test("Rejects if it couldn't find a version in the standard-version output", (): Promise<
-      boolean | void
-    > => {
-      createStandardVersionMock(
-        mock,
-        'bumping version in some-file.json from 0.1.0 to xxx'
-      );
+    describe('Rejects if', (): void => {
+      test("Both 'modulePath' and 'packaged' are not configured", (): Promise<
+        boolean | void
+      > => {
+        createStandardVersionMock(mock, '');
 
-      return expect(nextStandardVersion(options)).rejects.toEqual(
-        'Could not get a valid next version from standard-version'
-      );
-    });
+        return expect(nextStandardVersion({})).rejects.toEqual(
+          "One of the 'modulePath' and 'packaged' options must be configured"
+        );
+      });
+      test("It couldn't find a version in the standard-version output", (): Promise<
+        boolean | void
+      > => {
+        createStandardVersionMock(
+          mock,
+          'bumping version in some-file.json from x.x.x to x.x.x'
+        );
 
-    test('Rejects if standard-version rejects', (): Promise<boolean | void> => {
-      const errorMessage = 'some standard-version reject error message';
-      createStandardVersionMock(mock, errorMessage, 'reject');
+        return expect(nextStandardVersion(options)).rejects.toEqual(
+          'Could not get a valid next version from standard-version'
+        );
+      });
 
-      return expect(nextStandardVersion(options)).rejects.toEqual(
-        new Error(errorMessage)
-      );
-    });
+      test('standard-version rejects', (): Promise<boolean | void> => {
+        const errorMessage = 'some standard-version reject error message';
+        createStandardVersionMock(mock, errorMessage, 'reject');
 
-    test('Rejects if standard-version throws', (): Promise<boolean | void> => {
-      const errorMessage = 'some standard-version throw error messsage';
-      createStandardVersionMock(mock, errorMessage, 'throw');
+        return expect(nextStandardVersion(options)).rejects.toEqual(
+          new Error(errorMessage)
+        );
+      });
 
-      return expect(nextStandardVersion(options)).rejects.toThrow(errorMessage);
+      test('standard-version throws', (): Promise<boolean | void> => {
+        const errorMessage = 'some standard-version throw error messsage';
+        createStandardVersionMock(mock, errorMessage, 'throw');
+
+        return expect(nextStandardVersion(options)).rejects.toThrow(
+          errorMessage
+        );
+      });
     });
 
     test('Resolves the next version from standard-version', (): Promise<

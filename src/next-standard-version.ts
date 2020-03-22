@@ -3,13 +3,19 @@ import semver from 'semver';
 import stripAnsi from 'strip-ansi';
 
 export interface Options {
-  modulePath: string;
+  modulePath?: string;
   packaged?: boolean;
   releaseAs?: 'major' | 'minor' | 'patch';
 }
 
 export function nextStandardVersion(options: Options): Promise<string> {
   return new Promise((resolve, reject) => {
+    if (!options.modulePath && !options.packaged) {
+      reject(
+        "One of the 'modulePath' and 'packaged' options must be configured"
+      );
+    }
+
     const logs: string[] = [];
     console.info = function (message: string): void {
       logs.push(stripAnsi(message));
