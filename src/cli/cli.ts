@@ -33,6 +33,10 @@ export class Cli {
         '$0 --packaged',
         'Print the next Standard Version using the packaged standard-version.'
       )
+      .example(
+        '$0 --releaseAs minor',
+        'Print the next Standard Version with a specific release type.'
+      )
       .options({
         modulePath: {
           alias: 'm',

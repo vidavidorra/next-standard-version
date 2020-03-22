@@ -67,17 +67,22 @@ Options:
   --packaged, -p    Use the packaged standard-version.
                     Note that this silently overrules the modulePath option.
                                                                        [boolean]
+  --releaseAs, -r   Specify the release type manually.
+                                   [string] [choices: "major", "minor", "patch"]
 
 Examples:
   next-standard-version                     Print the next Standard Version.
-  next-standard-version --modulePath        Print the next Standard Version.
+  next-standard-version --modulePath        Print the next Standard Version
   ./node_modules/standard-version           using the standard-version package
                                             specified to by the module path.
   next-standard-version --packaged          Print the next Standard Version
                                             using the packaged standard-version.
+  next-standard-version --releaseAs minor   Print the next Standard Version with
+                                            a specific release type.
 ```
 
-<details><summary>Examples.</summary>
+<details>
+<summary>Examples using different installation and execution methods.</summary>
 <p>
 
 - Run from global installation.
