@@ -57,4 +57,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Prevent failed status when skipped
-        run: echo "Run this job to prevent the workflow status from showing as failed when all other jobs are skipped."
+        run: |
+          echo "Run this job to prevent the workflow status from showing as" \
+               "failed when all other jobs are skipped."
