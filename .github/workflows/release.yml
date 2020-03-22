@@ -6,7 +6,9 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: "startsWith(github.event.commits[0].message, 'chore(release): trigger release process [ci release]')"
+    if: |
+      github.event.commits[0].message ==
+          'chore(release): trigger release process [ci release]'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -29,17 +31,7 @@ jobs:
         run: |
           npm run build
           npm link
-      - name: Release as major
-        if: endsWith(github.event.commits[0].message, '[ci release][major]')
-        run: npx --no-install standard-version --release-as major
-      - name: Release as minor
-        if: endsWith(github.event.commits[0].message, '[ci release][minor]')
-        run: npx --no-install standard-version --release-as minor
-      - name: Release as patch
-        if: endsWith(github.event.commits[0].message, '[ci release][patch]')
-        run: npx --no-install standard-version --release-as patch
       - name: Release
-        if: endsWith(github.event.commits[0].message, '[ci release]')
         run: |
           echo "::set-env name=NEXT_VERSION::$(next-standard-version)"
           npx --no-install standard-version
