@@ -5,6 +5,7 @@ import stripAnsi from 'strip-ansi';
 export interface Options {
   modulePath: string;
   packaged?: boolean;
+  releaseAs?: 'major' | 'minor' | 'patch';
 }
 
 export function nextStandardVersion(options: Options): Promise<string> {
@@ -30,6 +31,7 @@ export function nextStandardVersion(options: Options): Promise<string> {
             commit: true,
             tag: true,
           },
+          releaseAs: options.releaseAs,
         });
       })
       .then(() => {

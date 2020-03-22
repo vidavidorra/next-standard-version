@@ -39,7 +39,8 @@ describe('Cli', (): void => {
      * shouldn't actually exit but just let the tests detect that it would have.
      */
     // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore: TS2534: A function returning 'never' cannot have a reachable end point.
+    // @ts-ignore: TS2534: A function returning 'never' cannot have a reachable
+    // end point.
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     mocks.exit.mockImplementation(() => {});
   });
@@ -95,11 +96,20 @@ describe('Cli', (): void => {
       });
     });
 
+    /**
+     * Each option is tested extensively, but aliases should be tested only
+     * once. The reasoning for this is that the alias just refers to the full
+     * option, so seeing that the alias works is enough as test.
+     */
     test.each([
       ['--modulePath', 'node_modules/standard-version'],
       ['-m', 'node_modules/standard-version'],
       ['--packaged', 'true'],
       ['-p', 'true'],
+      ['--releaseAs', 'major'],
+      ['--releaseAs', 'minor'],
+      ['--releaseAs', 'patch'],
+      ['-r', 'major'],
     ])(
       'If the `%s` option is given',
       (option, value): Promise<void> => {

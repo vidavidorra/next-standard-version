@@ -49,6 +49,12 @@ export class Cli {
           ].join('\n'),
           type: 'boolean',
         },
+        releaseAs: {
+          alias: 'r',
+          describe: 'Specify the release type manually.',
+          type: 'string',
+          choices: ['major', 'minor', 'patch'],
+        },
         version: {
           alias: 'v',
         },
@@ -58,6 +64,6 @@ export class Cli {
       })
       .parse(argv);
 
-    return args;
+    return args as Options;
   }
 }

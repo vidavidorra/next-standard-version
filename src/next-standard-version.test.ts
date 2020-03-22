@@ -79,7 +79,7 @@ describe('nextStandardVersion', (): void => {
     });
 
     test('Rejects if standard-version throws', (): Promise<boolean | void> => {
-      const errorMessage = 'some standard-version throw error messssage';
+      const errorMessage = 'some standard-version throw error messsage';
       createStandardVersionMock(mock, errorMessage, 'throw');
 
       return expect(nextStandardVersion(options)).rejects.toThrow(errorMessage);
