@@ -122,7 +122,19 @@ Examples:
 
 ### API
 
-`next-standard-version` has one function: `nextStandardVersion`. The function returns a promise, which will resolve to a string containing the next Standard Version. The promise will be rejected if there is an error getting the next Standard Version.
+`next-standard-version` has one function: `nextStandardVersion`.
+
+The function takes an object of the `Options` interface, shown below, as argument. One of the `modulePath` and `packaged` options MUST be configured. If both are configured, the `packaged` option will silently overrule the `modulePath` option.
+
+```typescript
+export interface Options {
+  modulePath?: string; // Path to standard-version module.
+  packaged?: boolean; // Use the packaged standard-version.
+  releaseAs?: 'major' | 'minor' | 'patch'; // Specify the release type manually.
+}
+```
+
+The function returns a promise, which will resolve to a string containing the next Standard Version. The promise will be rejected with an error message if an error occurs.
 
 <details><summary>Example.</summary>
 <p>

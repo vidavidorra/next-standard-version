@@ -2,10 +2,15 @@ import path from 'path';
 import semver from 'semver';
 import stripAnsi from 'strip-ansi';
 
+/**
+ * One of the `modulePath` and `packaged` options must be configured. If both
+ * are configured, the `packaged` option will silently overrule the `modulePath`
+ * option.
+ */
 export interface Options {
-  modulePath?: string;
-  packaged?: boolean;
-  releaseAs?: 'major' | 'minor' | 'patch';
+  modulePath?: string; // Path to standard-version module.
+  packaged?: boolean; // Use the packaged standard-version/
+  releaseAs?: 'major' | 'minor' | 'patch'; // Specify the release type manually.
 }
 
 export function nextStandardVersion(options: Options): Promise<string> {
