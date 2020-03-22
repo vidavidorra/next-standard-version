@@ -10,7 +10,7 @@ export interface Options {
 export function nextStandardVersion(options: Options): Promise<string> {
   return new Promise((resolve, reject) => {
     const logs: string[] = [];
-    console.info = function(message: string): void {
+    console.info = function (message: string): void {
       logs.push(stripAnsi(message));
     };
 

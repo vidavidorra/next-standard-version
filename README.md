@@ -65,7 +65,7 @@ Options:
   --modulePath, -m  Path to standard-version module.
                            [string] [default: "./node_modules/standard-version"]
   --packaged, -p    Use the packaged standard-version.
-                    Note that this silently overrides the modulePath option.
+                    Note that this silently overrules the modulePath option.
                                                                        [boolean]
 
 Examples:

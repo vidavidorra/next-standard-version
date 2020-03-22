@@ -45,7 +45,7 @@ export class Cli {
           alias: 'p',
           describe: [
             'Use the packaged standard-version.',
-            'Note that this silently overrides the modulePath option.',
+            'Note that this silently overrules the modulePath option.',
           ].join('\n'),
           type: 'boolean',
         },
