@@ -85,7 +85,7 @@ describe('nextStandardVersion', (): void => {
       return expect(nextStandardVersion(options)).rejects.toThrow(errorMessage);
     });
 
-    test('Resolves the next version from the standard-version', (): Promise<
+    test('Resolves the next version from standard-version', (): Promise<
       boolean | void
     > => {
       createStandardVersionMock(

@@ -1,0 +1,61 @@
+import { Options, nextStandardVersion } from '.';
+import semver from 'semver';
+import { version } from '../package.json';
+
+describe('nextStandardVersion', (): void => {
+  const mocks = {
+    console: {
+      log: jest.spyOn(console, 'log'),
+      error: jest.spyOn(console, 'error'),
+    },
+  };
+  beforeEach((): void => {
+    mocks.console.log.mockImplementation();
+    mocks.console.error.mockImplementation();
+  });
+
+  afterEach((): void => {
+    mocks.console.log.mockReset();
+    mocks.console.error.mockReset();
+  });
+
+  describe('Resolves the next version using the packaged standard-version', (): void => {
+    test.each([
+      [
+        'without options',
+        { modulePath: '', packaged: true, releaseAs: undefined },
+      ],
+      [
+        'with option releaseAs=major',
+        { modulePath: '', packaged: true, releaseAs: 'major' },
+      ],
+      [
+        'with option releaseAs=minor',
+        { modulePath: '', packaged: true, releaseAs: 'minor' },
+      ],
+      [
+        'with option releaseAs=patch',
+        { modulePath: '', packaged: true, releaseAs: 'patch' },
+      ],
+    ])(
+      '%s',
+      (name: string, options): Promise<boolean | void> => {
+        return nextStandardVersion(options as Options).then(
+          (newVersion: string) => {
+            if (!options.releaseAs) {
+              expect(newVersion).toMatch(
+                /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/
+              );
+            } else {
+              const nextVersion = semver.inc(
+                version,
+                options.releaseAs as semver.ReleaseType
+              );
+              expect(newVersion).toEqual(nextVersion);
+            }
+          }
+        );
+      }
+    );
+  });
+});
