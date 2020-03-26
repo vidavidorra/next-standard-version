@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.0.0
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v1.4.1
         with:
           node-version: '12.x'
       - name: Install project
@@ -25,9 +25,9 @@ jobs:
     needs: build
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.0.0
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v1.4.1
         with:
           node-version: '12.x'
       - name: Install project
@@ -35,7 +35,7 @@ jobs:
       - name: Run tests
         run: npm run test:ci
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v1.0.6
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage/cobertura-coverage.xml
