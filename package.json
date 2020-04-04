@@ -47,7 +47,7 @@
   "devDependencies": {
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
-    "@types/jest": "25.1.5",
+    "@types/jest": "25.2.1",
     "@types/node": "13.11.0",
     "@types/semver": "7.1.0",
     "@types/yargs": "15.0.4",
