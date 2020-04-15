@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.2](https://github.com/vidavidorra/next-standard-version/compare/v2.1.1...v2.1.2) (2020-04-15)
+
+
+### Bug Fixes
+
+* **deps:** update dependency semver to v7.3.2 ([#103](https://github.com/vidavidorra/next-standard-version/issues/103)) ([74658f4](https://github.com/vidavidorra/next-standard-version/commit/74658f409cf7c7bf185af06157d74287c389459d))
+
 ### [2.1.1](https://github.com/vidavidorra/next-standard-version/compare/v2.1.0...v2.1.1) (2020-04-14)
 
 
