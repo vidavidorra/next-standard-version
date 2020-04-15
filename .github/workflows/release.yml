@@ -4,7 +4,7 @@ on:
     branches:
       - master
 jobs:
-  release:
+  get-version:
     runs-on: ubuntu-latest
     if: |
       github.event.commits[0].message ==
@@ -16,6 +16,40 @@ jobs:
           fetch-depth: 0
       - name: Fetch tags
         run: git fetch --tags
+      - name: Setup node
+        uses: actions/setup-node@v1.4.1
+        with:
+          node-version: '12.x'
+      - name: Install project
+        run: npm ci
+      - name: Build (artefacts)
+        run: |
+          npm run build
+          npm link
+      - name: Get release version
+        run: next-standard-version > VERSION
+      - name: Save VERSION for following jobs
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: version
+          path: VERSION
+  release:
+    needs: get-version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.1.0
+        with:
+          fetch-depth: 0
+      - name: Get VERSION
+        uses: actions/download-artifact@v1.0.0
+        with:
+          name: version
+      - name: Save version for later steps
+        id: version
+        run: echo "::set-output name=version::$(cat version/VERSION)"
+      - name: Fetch tags
+        run: git fetch --tags
       - name: Setup Git user
         run: |
           git config --local user.name "github-actions[bot]"
@@ -24,7 +58,6 @@ jobs:
         uses: actions/setup-node@v1.4.1
         with:
           node-version: '12.x'
-          registry-url: 'https://registry.npmjs.org'
       - name: Install project
         run: npm ci
       - name: Build (artefacts)
@@ -32,9 +65,19 @@ jobs:
           npm run build
           npm link
       - name: Release
+        run: npx --no-install standard-version
+      - name: Get changelog section
+        id: changelog
         run: |
-          echo "::set-env name=NEXT_VERSION::$(next-standard-version)"
-          npx --no-install standard-version
+          changelog="$(git show --unified=0 CHANGELOG.md \
+              | tail +12 \
+              | sed -e 's/^\+//' \
+              | sed -z 's/\n/%0A/g;s/\r/%0D/g')"
+          echo "::set-output name=changelog::${changelog}"
+      - name: Publish npm package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
       - name: Publish release artefacts
         run: git push --follow-tags
       - name: Publish GitHub release
@@ -42,21 +85,18 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ env.NEXT_VERSION }}
-          release_name: v${{ env.NEXT_VERSION }}
+          tag_name: v${{ steps.version.outputs.version }}
+          release_name: v${{ steps.version.outputs.version }}
           body: |
-            See the the [changelog](
+            *See the the [changelog](
               https://github.com/${{ github.repository }}/blob/master/CHANGELOG.md
-            ) for the changes included in this release.
-      - name: Publish npm package
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish
-  prevent_failed_status:
-    name: Prevent failed status when skipped
+            ) for changes in all releases.*
+
+            ${{ steps.changelog.outputs.changelog }}
+  prevent-failed-status:
     runs-on: ubuntu-latest
     steps:
       - name: Prevent failed status when skipped
         run: |
           echo "Run this job to prevent the workflow status from showing as" \
-               "failed when all other jobs are skipped."
+              "failed when all other jobs are skipped."
