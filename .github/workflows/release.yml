@@ -58,6 +58,7 @@ jobs:
         uses: actions/setup-node@v1.4.1
         with:
           node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
       - name: Install project
         run: npm ci
       - name: Build (artefacts)
