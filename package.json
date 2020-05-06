@@ -40,7 +40,7 @@
   "homepage": "https://github.com/vidavidorra/next-standard-version#readme",
   "dependencies": {
     "semver": "7.3.2",
-    "standard-version": "7.1.0",
+    "standard-version": "8.0.0",
     "strip-ansi": "6.0.0",
     "yargs": "15.3.1"
   },
