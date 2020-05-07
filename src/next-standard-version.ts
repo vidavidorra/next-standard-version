@@ -17,7 +17,7 @@ export function nextStandardVersion(options: Options): Promise<string> {
   return new Promise((resolve, reject) => {
     if (!options.modulePath && !options.packaged) {
       reject(
-        "One of the 'modulePath' and 'packaged' options must be configured"
+        "One of the 'modulePath' and 'packaged' options must be configured",
       );
     }
 

@@ -22,7 +22,7 @@ describe('Cli', (): void => {
     mocks.nextStandardVersion.mockImplementation(
       (): Promise<string> => {
         return Promise.resolve('1.0.0');
-      }
+      },
     );
 
     mocks.console.log.mockImplementation((msg: string): void => {
@@ -60,7 +60,7 @@ describe('Cli', (): void => {
       mocks.nextStandardVersion.mockImplementation(
         (): Promise<string> => {
           return Promise.reject(errorMessage);
-        }
+        },
       );
 
       const cli = new Cli();
@@ -81,7 +81,7 @@ describe('Cli', (): void => {
           expect(mocks.console.error).not.toHaveBeenCalled();
           expect(mocks.exit).toHaveBeenCalledWith(0);
         });
-      }
+      },
     );
 
     test('Without options', (): Promise<void> => {
@@ -122,7 +122,7 @@ describe('Cli', (): void => {
           expect(mocks.console.error).not.toHaveBeenCalled();
           expect(mocks.exit).toHaveBeenCalledWith(0);
         });
-      }
+      },
     );
   });
 });

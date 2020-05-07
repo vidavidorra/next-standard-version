@@ -10,7 +10,7 @@ interface Mock {
 function createStandardVersionMock(
   mock: Mock,
   value: string,
-  method: 'resolve' | 'reject' | 'throw' = 'resolve'
+  method: 'resolve' | 'reject' | 'throw' = 'resolve',
 ): void {
   const standardVersionObj = { standardVersion };
 
@@ -34,7 +34,7 @@ function createStandardVersionMock(
         }
 
         return Promise.resolve();
-      }
+      },
     );
 }
 
@@ -63,7 +63,7 @@ describe('nextStandardVersion', (): void => {
         createStandardVersionMock(mock, '');
 
         return expect(nextStandardVersion({})).rejects.toEqual(
-          "One of the 'modulePath' and 'packaged' options must be configured"
+          "One of the 'modulePath' and 'packaged' options must be configured",
         );
       });
       test("It couldn't find a version in the standard-version output", (): Promise<
@@ -71,11 +71,11 @@ describe('nextStandardVersion', (): void => {
       > => {
         createStandardVersionMock(
           mock,
-          'bumping version in some-file.json from x.x.x to x.x.x'
+          'bumping version in some-file.json from x.x.x to x.x.x',
         );
 
         return expect(nextStandardVersion(options)).rejects.toEqual(
-          'Could not get a valid next version from standard-version'
+          'Could not get a valid next version from standard-version',
         );
       });
 
@@ -84,7 +84,7 @@ describe('nextStandardVersion', (): void => {
         createStandardVersionMock(mock, errorMessage, 'reject');
 
         return expect(nextStandardVersion(options)).rejects.toEqual(
-          new Error(errorMessage)
+          new Error(errorMessage),
         );
       });
 
@@ -93,7 +93,7 @@ describe('nextStandardVersion', (): void => {
         createStandardVersionMock(mock, errorMessage, 'throw');
 
         return expect(nextStandardVersion(options)).rejects.toThrow(
-          errorMessage
+          errorMessage,
         );
       });
     });
@@ -103,7 +103,7 @@ describe('nextStandardVersion', (): void => {
     > => {
       createStandardVersionMock(
         mock,
-        'bumping version in some-file.json from 0.1.0 to 99.99.99'
+        'bumping version in some-file.json from 0.1.0 to 99.99.99',
       );
 
       return nextStandardVersion(options).then((newVersion: string) => {

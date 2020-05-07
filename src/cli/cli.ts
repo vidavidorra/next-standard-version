@@ -27,15 +27,15 @@ export class Cli {
         [
           'Print the next Standard Version using the standard-version package',
           'specified to by the module path.',
-        ].join(' ')
+        ].join(' '),
       )
       .example(
         '$0 --packaged',
-        'Print the next Standard Version using the packaged standard-version.'
+        'Print the next Standard Version using the packaged standard-version.',
       )
       .example(
         '$0 --releaseAs minor',
-        'Print the next Standard Version with a specific release type.'
+        'Print the next Standard Version with a specific release type.',
       )
       .options({
         modulePath: {

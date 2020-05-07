@@ -32,18 +32,18 @@ describe('nextStandardVersion', (): void => {
           (newVersion: string) => {
             if (!options.releaseAs) {
               expect(newVersion).toMatch(
-                /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/
+                /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/,
               );
             } else {
               const nextVersion = semver.inc(
                 version,
-                options.releaseAs as semver.ReleaseType
+                options.releaseAs as semver.ReleaseType,
               );
               expect(newVersion).toEqual(nextVersion);
             }
-          }
+          },
         );
-      }
+      },
     );
   });
 });
