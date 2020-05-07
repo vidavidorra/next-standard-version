@@ -13,8 +13,6 @@ Get the next [Standard Version](https://github.com/conventional-changelog/standa
   - [API](#api)
 - [License](#license)
 
-<a name="badges"></a>
-
 ## Badges
 
 | Badge                                                                                                                                                                                                                                          | Description          | Service              |
@@ -28,8 +26,6 @@ Get the next [Standard Version](https://github.com/conventional-changelog/standa
 | <a href="https://github.com/vidavidorra/next-standard-version/actions"><img alt="GitHub workflow status" src="https://img.shields.io/github/workflow/status/vidavidorra/next-standard-version/Build?style=flat-square"></a>                    | Build and test       | GitHub Actions       |
 | <a href="https://www.npmjs.com/package/next-standard-version"><img alt="npm version" src="https://img.shields.io/npm/v/next-standard-version.svg?style=flat-square"></a>                                                                       | npm package version  | npm                  |
 
-<a name="documentation"></a>
-
 ## Documentation
 
 `next-standard-version` has two methods of using [Standard Version (`standard-version`)](https://github.com/conventional-changelog/standard-version) to get the next version.
@@ -39,7 +35,7 @@ Get the next [Standard Version](https://github.com/conventional-changelog/standa
 
 While this project aims to always have the latest version of standard-version, the first option guarantees that the standard-version used to get the next version is the exact same as the standard-version used to make the actual release. Using the second option, there might be a mismatch between the versions of standard-version and is could result in a different release version in case of a difference in the major version of standard-version.
 
-<a name="installation"></a>
+⚓ [Badges](#badges) • [Documentation](#documentation) • [Installation](#installation) • [CLI](#cli) • [API](#api) • [License](#license)
 
 ### Installation
 
@@ -51,7 +47,7 @@ $ npm install --save-dev next-standard-version
 $ npm install --global next-standard-version
 ```
 
-<a name="cli"></a>
+⚓ [Badges](#badges) • [Documentation](#documentation) • [Installation](#installation) • [CLI](#cli) • [API](#api) • [License](#license)
 
 ### CLI
 
@@ -118,7 +114,7 @@ Examples:
 
 </details>
 
-<a name="api"></a>
+⚓ [Badges](#badges) • [Documentation](#documentation) • [Installation](#installation) • [CLI](#cli) • [API](#api) • [License](#license)
 
 ### API
 
@@ -157,7 +153,7 @@ nextStandardVersion({
 
 </details>
 
-<a name="license"></a>
+⚓ [Badges](#badges) • [Documentation](#documentation) • [Installation](#installation) • [CLI](#cli) • [API](#api) • [License](#license)
 
 ## License
 
