@@ -5,10 +5,11 @@ on:
       - master
 jobs:
   get-version:
-    runs-on: ubuntu-latest
     if: |
       github.event.commits[0].message ==
           'chore(release): trigger release process [ci release]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v2.1.0
@@ -21,7 +22,7 @@ jobs:
         with:
           node-version: '12.x'
       - name: Install project
-        run: npm ci
+        run: npm ci --ignore-scripts
       - name: Build (artefacts)
         run: |
           npm run build
@@ -36,6 +37,7 @@ jobs:
   release:
     needs: get-version
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout
         uses: actions/checkout@v2.1.0
@@ -60,7 +62,7 @@ jobs:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
       - name: Install project
-        run: npm ci
+        run: npm ci --ignore-scripts
       - name: Build (artefacts)
         run: |
           npm run build
@@ -96,6 +98,7 @@ jobs:
             ${{ steps.changelog.outputs.changelog }}
   prevent-failed-status:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Prevent failed status when skipped
         run: |
