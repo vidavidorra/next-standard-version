@@ -4,19 +4,17 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [2.1.2](https://github.com/vidavidorra/next-standard-version/compare/v2.1.1...v2.1.2) (2020-04-15)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency semver to v7.3.2 ([#103](https://github.com/vidavidorra/next-standard-version/issues/103)) ([74658f4](https://github.com/vidavidorra/next-standard-version/commit/74658f409cf7c7bf185af06157d74287c389459d))
+- **deps:** update dependency semver to v7.3.2 ([#103](https://github.com/vidavidorra/next-standard-version/issues/103)) ([74658f4](https://github.com/vidavidorra/next-standard-version/commit/74658f409cf7c7bf185af06157d74287c389459d))
 
 ### [2.1.1](https://github.com/vidavidorra/next-standard-version/compare/v2.1.0...v2.1.1) (2020-04-14)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency semver to v7.2.1 ([#94](https://github.com/vidavidorra/next-standard-version/issues/94)) ([4d030e5](https://github.com/vidavidorra/next-standard-version/commit/4d030e5a66be453612d295bec21e489fcde22932))
-* **deps:** update dependency semver to v7.2.2 ([#99](https://github.com/vidavidorra/next-standard-version/issues/99)) ([68e3c67](https://github.com/vidavidorra/next-standard-version/commit/68e3c676740bf0e60554cea4fe0a11330011fb54))
-* **deps:** update dependency semver to v7.3.0 ([#102](https://github.com/vidavidorra/next-standard-version/issues/102)) ([ab905a9](https://github.com/vidavidorra/next-standard-version/commit/ab905a9d05eaa81a61f38d7958a98235e574c5bf))
+- **deps:** update dependency semver to v7.2.1 ([#94](https://github.com/vidavidorra/next-standard-version/issues/94)) ([4d030e5](https://github.com/vidavidorra/next-standard-version/commit/4d030e5a66be453612d295bec21e489fcde22932))
+- **deps:** update dependency semver to v7.2.2 ([#99](https://github.com/vidavidorra/next-standard-version/issues/99)) ([68e3c67](https://github.com/vidavidorra/next-standard-version/commit/68e3c676740bf0e60554cea4fe0a11330011fb54))
+- **deps:** update dependency semver to v7.3.0 ([#102](https://github.com/vidavidorra/next-standard-version/issues/102)) ([ab905a9](https://github.com/vidavidorra/next-standard-version/commit/ab905a9d05eaa81a61f38d7958a98235e574c5bf))
 
 ## [2.1.0](https://github.com/vidavidorra/next-standard-version/compare/v2.0.2...v2.1.0) (2020-03-22)
 
