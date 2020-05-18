@@ -30,7 +30,7 @@ jobs:
       - name: Get release version
         run: next-standard-version > VERSION
       - name: Save VERSION for following jobs
-        uses: actions/upload-artifact@v1.0.0
+        uses: actions/upload-artifact@v2.0.1
         with:
           name: version
           path: VERSION
