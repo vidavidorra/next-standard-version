@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.1.1
+        uses: actions/checkout@v2.2.0
         with:
           fetch-depth: 0
       - name: Fetch tags
@@ -40,7 +40,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.1.1
+        uses: actions/checkout@v2.2.0
         with:
           fetch-depth: 0
       - name: Get VERSION
