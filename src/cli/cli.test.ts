@@ -38,7 +38,7 @@ describe('Cli', (): void => {
      * `(code?: number) => never`. That is fine in this case since the program
      * shouldn't actually exit but just let the tests detect that it would have.
      */
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore: TS2534: A function returning 'never' cannot have a reachable
     // end point.
     // eslint-disable-next-line @typescript-eslint/no-empty-function
