@@ -44,7 +44,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Get VERSION
-        uses: actions/download-artifact@v1.0.0
+        uses: actions/download-artifact@v2.0.5
         with:
           name: version
       - name: Save version for later steps
