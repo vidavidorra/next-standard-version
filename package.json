@@ -43,7 +43,7 @@
     "node": ">=12"
   },
   "dependencies": {
-    "@vidavidorra/commitlint-config": "3.2.5",
+    "@vidavidorra/commitlint-config": "3.2.6",
     "semver": "7.3.7",
     "standard-version": "9.3.2",
     "strip-ansi": "6.0.1",
