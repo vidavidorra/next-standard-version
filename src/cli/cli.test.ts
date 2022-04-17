@@ -1,3 +1,11 @@
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  jest,
+} from '@jest/globals';
 import { Cli } from '.';
 import { mocked } from 'ts-jest/utils';
 import { nextStandardVersion } from '../next-standard-version';
@@ -19,11 +27,9 @@ describe('Cli', (): void => {
   };
 
   beforeEach((): void => {
-    mocks.nextStandardVersion.mockImplementation(
-      (): Promise<string> => {
-        return Promise.resolve('1.0.0');
-      },
-    );
+    mocks.nextStandardVersion.mockImplementation((): Promise<string> => {
+      return Promise.resolve('1.0.0');
+    });
 
     mocks.console.log.mockImplementation((msg: string): void => {
       logs.log.push(msg);
@@ -55,13 +61,11 @@ describe('Cli', (): void => {
   });
 
   describe('Exits with error code and message', (): void => {
-    test('If nextStandardVersion rejects', (): Promise<void> => {
+    it('If nextStandardVersion rejects', (): Promise<void> => {
       const errorMessage = 'some reject error message';
-      mocks.nextStandardVersion.mockImplementation(
-        (): Promise<string> => {
-          return Promise.reject(errorMessage);
-        },
-      );
+      mocks.nextStandardVersion.mockImplementation((): Promise<string> => {
+        return Promise.reject(errorMessage);
+      });
 
       const cli = new Cli();
       return cli.Run([]).then(() => {
@@ -72,7 +76,7 @@ describe('Cli', (): void => {
   });
 
   describe('Exits with success code (and message)', (): void => {
-    test.each(['--help', '-h', '--version', '-v'])(
+    it.each(['--help', '-h', '--version', '-v'])(
       'If only the `%s` option is given',
       (option): Promise<void> => {
         const cli = new Cli();
@@ -84,7 +88,7 @@ describe('Cli', (): void => {
       },
     );
 
-    test('Without options', (): Promise<void> => {
+    it('Without options', (): Promise<void> => {
       const cli = new Cli();
 
       return cli.Run([]).then(() => {
@@ -101,7 +105,7 @@ describe('Cli', (): void => {
      * once. The reasoning for this is that the alias just refers to the full
      * option, so seeing that the alias works is enough as test.
      */
-    test.each([
+    it.each([
       ['--modulePath', 'node_modules/standard-version'],
       ['-m', 'node_modules/standard-version'],
       ['--packaged', 'true'],
@@ -110,19 +114,16 @@ describe('Cli', (): void => {
       ['--releaseAs', 'minor'],
       ['--releaseAs', 'patch'],
       ['-r', 'major'],
-    ])(
-      'If the `%s` option is given',
-      (option, value): Promise<void> => {
-        const cli = new Cli();
+    ])('If the `%s` option is given', (option, value): Promise<void> => {
+      const cli = new Cli();
 
-        return cli.Run([option, value]).then(() => {
-          expect(mocks.nextStandardVersion).toHaveBeenCalledTimes(1);
-          expect(mocks.console.log).toHaveBeenCalled();
-          expect(logs.log).not.toBe([]);
-          expect(mocks.console.error).not.toHaveBeenCalled();
-          expect(mocks.exit).toHaveBeenCalledWith(0);
-        });
-      },
-    );
+      return cli.Run([option, value]).then(() => {
+        expect(mocks.nextStandardVersion).toHaveBeenCalledTimes(1);
+        expect(mocks.console.log).toHaveBeenCalled();
+        expect(logs.log).not.toBe([]);
+        expect(mocks.console.error).not.toHaveBeenCalled();
+        expect(mocks.exit).toHaveBeenCalledWith(0);
+      });
+    });
   });
 });

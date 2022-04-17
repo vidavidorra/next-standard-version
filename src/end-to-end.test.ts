@@ -1,4 +1,12 @@
 import { Options, nextStandardVersion } from '.';
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  jest,
+} from '@jest/globals';
 import semver from 'semver';
 import { version } from '../package.json';
 
@@ -10,8 +18,12 @@ describe('nextStandardVersion', (): void => {
     },
   };
   beforeEach((): void => {
-    mocks.console.log.mockImplementation();
-    mocks.console.error.mockImplementation();
+    mocks.console.log.mockImplementation(() => {
+      return;
+    });
+    mocks.console.error.mockImplementation(() => {
+      return;
+    });
   });
 
   afterEach((): void => {
@@ -20,30 +32,27 @@ describe('nextStandardVersion', (): void => {
   });
 
   describe('Resolves the next version using the packaged standard-version', (): void => {
-    test.each([
+    it.each([
       ['without options', { packaged: true, releaseAs: undefined }],
       ['with option releaseAs=major', { packaged: true, releaseAs: 'major' }],
       ['with option releaseAs=minor', { packaged: true, releaseAs: 'minor' }],
       ['with option releaseAs=patch', { packaged: true, releaseAs: 'patch' }],
-    ])(
-      '%s',
-      (name: string, options): Promise<boolean | void> => {
-        return nextStandardVersion(options as Options).then(
-          (newVersion: string) => {
-            if (!options.releaseAs) {
-              expect(newVersion).toMatch(
-                /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/,
-              );
-            } else {
-              const nextVersion = semver.inc(
-                version,
-                options.releaseAs as semver.ReleaseType,
-              );
-              expect(newVersion).toEqual(nextVersion);
-            }
-          },
-        );
-      },
-    );
+    ])('%s', (name: string, options): Promise<boolean | void> => {
+      return nextStandardVersion(options as Options).then(
+        (newVersion: string) => {
+          if (!options.releaseAs) {
+            expect(newVersion).toMatch(
+              /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/,
+            );
+          } else {
+            const nextVersion = semver.inc(
+              version,
+              options.releaseAs as semver.ReleaseType,
+            );
+            expect(newVersion).toEqual(nextVersion);
+          }
+        },
+      );
+    });
   });
 });

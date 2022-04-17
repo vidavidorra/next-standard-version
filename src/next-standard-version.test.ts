@@ -1,3 +1,11 @@
+import {
+  afterEach,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  jest,
+} from '@jest/globals';
 import { nextStandardVersion } from '.';
 import standardVersion from 'standard-version';
 
@@ -16,26 +24,21 @@ function createStandardVersionMock(
 
   mock.standardVersion = jest
     .spyOn(standardVersionObj, 'standardVersion')
-    .mockImplementation(
-      (): Promise<void> => {
-        switch (method) {
-          case 'resolve':
-            console.info(value);
-            return Promise.resolve();
-            break;
-          case 'reject':
-            return Promise.reject(new Error(value));
-            break;
-          case 'throw':
-            throw new Error(value);
-            break;
-          default:
-            break;
-        }
+    .mockImplementation((): Promise<void> => {
+      switch (method) {
+        case 'resolve':
+          console.info(value);
+          return Promise.resolve();
+        case 'reject':
+          return Promise.reject(new Error(value));
+        case 'throw':
+          throw new Error(value);
+        default:
+          break;
+      }
 
-        return Promise.resolve();
-      },
-    );
+      return Promise.resolve();
+    });
 }
 
 describe('nextStandardVersion', (): void => {
@@ -57,16 +60,16 @@ describe('nextStandardVersion', (): void => {
     ],
   ])('With %s standard-version', (name, options) => {
     describe('Rejects if', (): void => {
-      test("Both 'modulePath' and 'packaged' are not configured", (): Promise<
+      it("Both 'modulePath' and 'packaged' are not configured", (): Promise<
         boolean | void
       > => {
         createStandardVersionMock(mock, '');
 
-        return expect(nextStandardVersion({})).rejects.toEqual(
+        return expect(nextStandardVersion({})).rejects.toBe(
           "One of the 'modulePath' and 'packaged' options must be configured",
         );
       });
-      test("It couldn't find a version in the standard-version output", (): Promise<
+      it("It couldn't find a version in the standard-version output", (): Promise<
         boolean | void
       > => {
         createStandardVersionMock(
@@ -74,12 +77,12 @@ describe('nextStandardVersion', (): void => {
           'bumping version in some-file.json from x.x.x to x.x.x',
         );
 
-        return expect(nextStandardVersion(options)).rejects.toEqual(
+        return expect(nextStandardVersion(options)).rejects.toBe(
           'Could not get a valid next version from standard-version',
         );
       });
 
-      test('standard-version rejects', (): Promise<boolean | void> => {
+      it('standard-version rejects', (): Promise<boolean | void> => {
         const errorMessage = 'some standard-version reject error message';
         createStandardVersionMock(mock, errorMessage, 'reject');
 
@@ -88,7 +91,7 @@ describe('nextStandardVersion', (): void => {
         );
       });
 
-      test('standard-version throws', (): Promise<boolean | void> => {
+      it('standard-version throws', (): Promise<boolean | void> => {
         const errorMessage = 'some standard-version throw error message';
         createStandardVersionMock(mock, errorMessage, 'throw');
 
@@ -98,7 +101,7 @@ describe('nextStandardVersion', (): void => {
       });
     });
 
-    test('Resolves the next version from standard-version', (): Promise<
+    it('Resolves the next version from standard-version', (): Promise<
       boolean | void
     > => {
       createStandardVersionMock(
@@ -107,7 +110,7 @@ describe('nextStandardVersion', (): void => {
       );
 
       return nextStandardVersion(options).then((newVersion: string) => {
-        expect(newVersion).toEqual('99.99.99');
+        expect(newVersion).toBe('99.99.99');
         expect(mock.standardVersion).toHaveBeenCalledTimes(1);
       });
     });
