@@ -46,7 +46,7 @@
     "@vidavidorra/commitlint-config": "3.2.5",
     "semver": "7.3.7",
     "standard-version": "9.3.2",
-    "strip-ansi": "6.0.0",
+    "strip-ansi": "6.0.1",
     "yargs": "17.4.1"
   },
   "devDependencies": {
