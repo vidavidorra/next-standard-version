@@ -1,3 +1,27 @@
+## [3.0.0](https://github.com/vidavidorra/next-standard-version/compare/v2.1.3...v3.0.0) (2022-04-17)
+
+### ⚠ BREAKING CHANGES
+
+- require Node.js v12 minimum
+
+### Bug Fixes
+
+- **deps:** update dependency semver to v7.3.7 ([352e31b](https://github.com/vidavidorra/next-standard-version/commit/352e31b29c11998c922ab5c23bce068ce619cd9f))
+- **deps:** update dependency standard-version to v8.0.1 [security] ([#196](https://github.com/vidavidorra/next-standard-version/issues/196)) ([61b3362](https://github.com/vidavidorra/next-standard-version/commit/61b3362e09f087d08f32a7b219e6a65802ab8c70))
+- **deps:** update dependency standard-version to v9.3.2 ([aec092d](https://github.com/vidavidorra/next-standard-version/commit/aec092db8a9c7048a08c883828b52503922a9f45)), closes [#239](https://github.com/vidavidorra/next-standard-version/issues/239)
+- **deps:** update dependency yargs to v15.4.1 ([#187](https://github.com/vidavidorra/next-standard-version/issues/187)) ([8ede95f](https://github.com/vidavidorra/next-standard-version/commit/8ede95f6670857be22c73c35c44015af074329c8))
+- **deps:** update dependency yargs to v17.4.1 ([ea754ca](https://github.com/vidavidorra/next-standard-version/commit/ea754caa4f385d1a955fa17ff7f569e3cc451301))
+- require Node.js v12 minimum ([738e8de](https://github.com/vidavidorra/next-standard-version/commit/738e8de3da5153fb7ae0cee152665eb76f938c36))
+
+### Continuous Integration
+
+- **renovate:** use Renovate configuration from vidavidorra/.github ([eb5b293](https://github.com/vidavidorra/next-standard-version/commit/eb5b293e7384179d8b7e909181fdfc687f9b7394))
+
+### Styles
+
+- fix test linting errors ([556f133](https://github.com/vidavidorra/next-standard-version/commit/556f1336bba4192634b4e6085eeb3866b5365923))
+- format all files ([8713e5d](https://github.com/vidavidorra/next-standard-version/commit/8713e5d75558df401f696f8d78823ce6dc545153))
+
 # Changelog
 
 ### [2.1.3](https://github.com/vidavidorra/next-standard-version/compare/v2.1.2...v2.1.3) (2020-05-07)
