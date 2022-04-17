@@ -18,7 +18,7 @@ jobs:
       - name: Fetch tags
         run: git fetch --tags
       - name: Setup node
-        uses: actions/setup-node@v2.1.0
+        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561 # tag=v2.5.1
         with:
           node-version: '12.x'
       - name: Install project
