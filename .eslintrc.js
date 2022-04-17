@@ -1,12 +1,6 @@
-module.exports = {
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
-    'plugin:prettier/recommended',
-  ],
-  parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'prettier', 'json'],
+const defaultConfig = {
+  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  plugins: [],
   parserOptions: {
     sourceType: 'module',
   },
@@ -14,19 +8,76 @@ module.exports = {
     es2020: true,
     node: true,
   },
+  root: true,
   rules: {
+    'no-restricted-globals': [
+      'error',
+      /**
+       * From Jest global environment.
+       * https://github.com/facebook/jest/blob/v26.6.3/packages/jest-globals/src/index.ts#L12-L27
+       */
+      'jest',
+      'expect',
+      'it',
+      'test',
+      'fit',
+      'xit',
+      'xtest',
+      'describe',
+      'xdescribe',
+      'fdescribe',
+      'beforeAll',
+      'beforeEach',
+      'afterEach',
+      'afterAll',
+    ],
     'prettier/prettier': 'error',
     'sort-imports': 'error',
   },
-  ignorePatterns: [
-    '.git/',
-    '.vscode',
-    'build/',
-    'dist/',
-    'coverage/',
-    'LICENSE.md',
-    'modules/',
-    'node_modules/',
-    '!.*',
-  ],
 };
+
+/**
+ * Add to `extends` of `defaultConfig`.
+ *
+ * The Prettier recommended configuration must be the last extension. See
+ * https://github.com/prettier/eslint-plugin-prettier#recommended-configuration.
+ *
+ * @param  {...configurations} configurations Configuration(s) to add.
+ * @return Superset of the `extends` with the given configuration(s) added.
+ */
+function addToDefaultExtends(...configurations) {
+  const prettierConfiguration = 'plugin:prettier/recommended';
+  const extendsSuperset = defaultConfig.extends
+    .concat(configurations)
+    .sort((a, b) => {
+      if (b === prettierConfiguration) {
+        return -1;
+      }
+      if (a === prettierConfiguration) {
+        return 1;
+      }
+      return 0;
+    });
+
+  return extendsSuperset;
+}
+
+const config = defaultConfig;
+config.overrides = [
+  {
+    files: ['**/*.json'],
+    extends: addToDefaultExtends('plugin:json/recommended'),
+  },
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    extends: addToDefaultExtends(
+      'plugin:@typescript-eslint/recommended',
+      'plugin:jest/style',
+    ),
+    parser: '@typescript-eslint/parser',
+    plugins: defaultConfig.plugins.concat(['@typescript-eslint']),
+    rules: { ...defaultConfig.rules, 'jest/consistent-test-it': 'error' },
+  },
+];
+
+module.exports = config;
