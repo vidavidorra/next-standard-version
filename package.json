@@ -39,6 +39,9 @@
     "url": "https://github.com/vidavidorra/next-standard-version/issues"
   },
   "homepage": "https://github.com/vidavidorra/next-standard-version#readme",
+  "engines": {
+    "node": ">=12"
+  },
   "dependencies": {
     "semver": "7.3.7",
     "standard-version": "9.3.2",
