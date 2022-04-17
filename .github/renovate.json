@@ -1,9 +1,4 @@
 {
-  "extends": [
-    "config:base",
-    ":pinDependencies",
-    ":timezone(Europe/Amsterdam)",
-    ":assignee(vidavidorra)"
-  ],
-  "schedule": ["before 6am"]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>vidavidorra/.github"]
 }
