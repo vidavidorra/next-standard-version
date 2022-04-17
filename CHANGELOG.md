@@ -1,3 +1,9 @@
+### [3.0.1](https://github.com/vidavidorra/next-standard-version/compare/v3.0.0...v3.0.1) (2022-04-17)
+
+### Bug Fixes
+
+- **deps:** update dependency strip-ansi to v6.0.1 ([32a1b8f](https://github.com/vidavidorra/next-standard-version/commit/32a1b8f180937c2192d52018f246d913058be2d0))
+
 ## [3.0.0](https://github.com/vidavidorra/next-standard-version/compare/v2.1.3...v3.0.0) (2022-04-17)
 
 ### ⚠ BREAKING CHANGES
