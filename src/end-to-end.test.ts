@@ -25,25 +25,22 @@ describe('nextStandardVersion', (): void => {
       ['with option releaseAs=major', { packaged: true, releaseAs: 'major' }],
       ['with option releaseAs=minor', { packaged: true, releaseAs: 'minor' }],
       ['with option releaseAs=patch', { packaged: true, releaseAs: 'patch' }],
-    ])(
-      '%s',
-      (name: string, options): Promise<boolean | void> => {
-        return nextStandardVersion(options as Options).then(
-          (newVersion: string) => {
-            if (!options.releaseAs) {
-              expect(newVersion).toMatch(
-                /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/,
-              );
-            } else {
-              const nextVersion = semver.inc(
-                version,
-                options.releaseAs as semver.ReleaseType,
-              );
-              expect(newVersion).toEqual(nextVersion);
-            }
-          },
-        );
-      },
-    );
+    ])('%s', (name: string, options): Promise<boolean | void> => {
+      return nextStandardVersion(options as Options).then(
+        (newVersion: string) => {
+          if (!options.releaseAs) {
+            expect(newVersion).toMatch(
+              /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)/,
+            );
+          } else {
+            const nextVersion = semver.inc(
+              version,
+              options.releaseAs as semver.ReleaseType,
+            );
+            expect(newVersion).toEqual(nextVersion);
+          }
+        },
+      );
+    });
   });
 });

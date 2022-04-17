@@ -117,7 +117,7 @@ The function takes an object of the `Options` interface, shown below, as argumen
 ```typescript
 export interface Options {
   modulePath?: string; // Path to standard-version module.
-  packaged?: boolean;  // Use the packaged standard-version.
+  packaged?: boolean; // Use the packaged standard-version.
   releaseAs?: 'major' | 'minor' | 'patch'; // Specify the release type manually.
 }
 ```

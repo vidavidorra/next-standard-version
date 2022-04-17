@@ -19,11 +19,9 @@ describe('Cli', (): void => {
   };
 
   beforeEach((): void => {
-    mocks.nextStandardVersion.mockImplementation(
-      (): Promise<string> => {
-        return Promise.resolve('1.0.0');
-      },
-    );
+    mocks.nextStandardVersion.mockImplementation((): Promise<string> => {
+      return Promise.resolve('1.0.0');
+    });
 
     mocks.console.log.mockImplementation((msg: string): void => {
       logs.log.push(msg);
@@ -57,11 +55,9 @@ describe('Cli', (): void => {
   describe('Exits with error code and message', (): void => {
     test('If nextStandardVersion rejects', (): Promise<void> => {
       const errorMessage = 'some reject error message';
-      mocks.nextStandardVersion.mockImplementation(
-        (): Promise<string> => {
-          return Promise.reject(errorMessage);
-        },
-      );
+      mocks.nextStandardVersion.mockImplementation((): Promise<string> => {
+        return Promise.reject(errorMessage);
+      });
 
       const cli = new Cli();
       return cli.Run([]).then(() => {
@@ -110,19 +106,16 @@ describe('Cli', (): void => {
       ['--releaseAs', 'minor'],
       ['--releaseAs', 'patch'],
       ['-r', 'major'],
-    ])(
-      'If the `%s` option is given',
-      (option, value): Promise<void> => {
-        const cli = new Cli();
+    ])('If the `%s` option is given', (option, value): Promise<void> => {
+      const cli = new Cli();
 
-        return cli.Run([option, value]).then(() => {
-          expect(mocks.nextStandardVersion).toHaveBeenCalledTimes(1);
-          expect(mocks.console.log).toHaveBeenCalled();
-          expect(logs.log).not.toBe([]);
-          expect(mocks.console.error).not.toHaveBeenCalled();
-          expect(mocks.exit).toHaveBeenCalledWith(0);
-        });
-      },
-    );
+      return cli.Run([option, value]).then(() => {
+        expect(mocks.nextStandardVersion).toHaveBeenCalledTimes(1);
+        expect(mocks.console.log).toHaveBeenCalled();
+        expect(logs.log).not.toBe([]);
+        expect(mocks.console.error).not.toHaveBeenCalled();
+        expect(mocks.exit).toHaveBeenCalledWith(0);
+      });
+    });
   });
 });

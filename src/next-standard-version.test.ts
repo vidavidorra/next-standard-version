@@ -16,26 +16,21 @@ function createStandardVersionMock(
 
   mock.standardVersion = jest
     .spyOn(standardVersionObj, 'standardVersion')
-    .mockImplementation(
-      (): Promise<void> => {
-        switch (method) {
-          case 'resolve':
-            console.info(value);
-            return Promise.resolve();
-            break;
-          case 'reject':
-            return Promise.reject(new Error(value));
-            break;
-          case 'throw':
-            throw new Error(value);
-            break;
-          default:
-            break;
-        }
+    .mockImplementation((): Promise<void> => {
+      switch (method) {
+        case 'resolve':
+          console.info(value);
+          return Promise.resolve();
+        case 'reject':
+          return Promise.reject(new Error(value));
+        case 'throw':
+          throw new Error(value);
+        default:
+          break;
+      }
 
-        return Promise.resolve();
-      },
-    );
+      return Promise.resolve();
+    });
 }
 
 describe('nextStandardVersion', (): void => {
