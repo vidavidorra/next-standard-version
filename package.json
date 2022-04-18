@@ -43,7 +43,6 @@
     "node": ">=12"
   },
   "dependencies": {
-    "@vidavidorra/commitlint-config": "3.2.6",
     "semver": "7.3.7",
     "standard-version": "9.3.2",
     "strip-ansi": "6.0.1",
@@ -62,6 +61,7 @@
     "@types/yargs": "17.0.10",
     "@typescript-eslint/eslint-plugin": "5.19.0",
     "@typescript-eslint/parser": "5.19.0",
+    "@vidavidorra/commitlint-config": "3.2.6",
     "eslint": "8.13.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-jest": "26.1.4",
