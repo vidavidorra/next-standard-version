@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@f25a3a9f25bd5f4c5d77189cab02ff357b5aedeb # tag=v2.4.1
+        uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748 # tag=v3.0.1
         with:
           fetch-depth: 0
       - name: Fetch tags
