@@ -1,3 +1,9 @@
+### [3.0.2](https://github.com/vidavidorra/next-standard-version/compare/v3.0.1...v3.0.2) (2022-04-18)
+
+### Bug Fixes
+
+- **deps:** update dependency @vidavidorra/commitlint-config to v3.2.6 ([a26876c](https://github.com/vidavidorra/next-standard-version/commit/a26876c82947d325246118fd362f62320ab7fcf7))
+
 ### [3.0.1](https://github.com/vidavidorra/next-standard-version/compare/v3.0.0...v3.0.1) (2022-04-17)
 
 ### Bug Fixes
