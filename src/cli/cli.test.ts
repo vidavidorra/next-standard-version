@@ -7,7 +7,6 @@ import {
   jest,
 } from '@jest/globals';
 import { Cli } from '.';
-import { mocked } from 'ts-jest/utils';
 import { nextStandardVersion } from '../next-standard-version';
 
 jest.mock('../next-standard-version');
@@ -19,7 +18,7 @@ describe('Cli', (): void => {
       error: jest.spyOn(console, 'error'),
     },
     exit: jest.spyOn(process, 'exit'),
-    nextStandardVersion: mocked(nextStandardVersion),
+    nextStandardVersion: jest.mocked(nextStandardVersion),
   };
   const logs = {
     log: [],
