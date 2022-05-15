@@ -1,3 +1,9 @@
+### [3.0.3](https://github.com/vidavidorra/next-standard-version/compare/v3.0.2...v3.0.3) (2022-05-15)
+
+### Bug Fixes
+
+- **deps:** update dependency yargs to v17.5.0 ([8b74f69](https://github.com/vidavidorra/next-standard-version/commit/8b74f69694a31840f6782d3e8ec64cf1f52587f5))
+
 ### [3.0.2](https://github.com/vidavidorra/next-standard-version/compare/v3.0.1...v3.0.2) (2022-04-18)
 
 ### Bug Fixes
