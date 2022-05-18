@@ -1,3 +1,9 @@
+### [3.0.4](https://github.com/vidavidorra/next-standard-version/compare/v3.0.3...v3.0.4) (2022-05-18)
+
+### Bug Fixes
+
+- **deps:** update dependency standard-version to v9.5.0 ([6dc498d](https://github.com/vidavidorra/next-standard-version/commit/6dc498d9b904a7bb67e6e0ac949d54d624288dcb))
+
 ### [3.0.3](https://github.com/vidavidorra/next-standard-version/compare/v3.0.2...v3.0.3) (2022-05-15)
 
 ### Bug Fixes
