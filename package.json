@@ -46,7 +46,7 @@
     "semver": "7.3.7",
     "standard-version": "9.5.0",
     "strip-ansi": "6.0.1",
-    "yargs": "17.5.0"
+    "yargs": "17.5.1"
   },
   "devDependencies": {
     "@commitlint/cli": "16.3.0",
