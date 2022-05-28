@@ -49,7 +49,7 @@
     "yargs": "17.5.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.0.0",
+    "@commitlint/cli": "17.0.1",
     "@commitlint/config-conventional": "17.0.0",
     "@jest/globals": "28.1.0",
     "@semantic-release/changelog": "6.0.1",
