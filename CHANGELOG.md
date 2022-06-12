@@ -1,3 +1,9 @@
+### [3.0.6](https://github.com/vidavidorra/next-standard-version/compare/v3.0.5...v3.0.6) (2022-06-12)
+
+### Bug Fixes
+
+- **cli:** configure yargs default aliases using `.alias` ([1fd09f4](https://github.com/vidavidorra/next-standard-version/commit/1fd09f4ef985b579a5e89cd55cf1916e6fb3f469)), closes [#256](https://github.com/vidavidorra/next-standard-version/issues/256)
+
 ### [3.0.5](https://github.com/vidavidorra/next-standard-version/compare/v3.0.4...v3.0.5) (2022-05-19)
 
 ### Bug Fixes
