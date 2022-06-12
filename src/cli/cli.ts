@@ -37,6 +37,10 @@ export class Cli {
         '$0 --releaseAs minor',
         'Print the next Standard Version with a specific release type.',
       )
+      .alias({
+        h: 'help',
+        v: 'version',
+      })
       .options({
         modulePath: {
           alias: 'm',
@@ -58,12 +62,6 @@ export class Cli {
           describe: 'Specify the release type manually.',
           type: 'string',
           choices: ['major', 'minor', 'patch'],
-        },
-        version: {
-          alias: 'v',
-        },
-        help: {
-          alias: 'h',
         },
       })
       .parse(argv);
