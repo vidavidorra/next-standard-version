@@ -43,7 +43,7 @@
     "node": ">=12"
   },
   "dependencies": {
-    "semver": "7.3.7",
+    "semver": "7.3.8",
     "standard-version": "9.5.0",
     "strip-ansi": "6.0.1",
     "yargs": "17.6.0"
