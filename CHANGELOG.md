@@ -1,3 +1,9 @@
+## [3.0.13](https://github.com/vidavidorra/next-standard-version/compare/v3.0.12...v3.0.13) (2023-04-14)
+
+### Bug Fixes
+
+- **deps:** update dependency semver to v7.4.0 ([65f8264](https://github.com/vidavidorra/next-standard-version/commit/65f8264d71b748b701641a9bfea7c8e6f6eeb16e))
+
 ## [3.0.12](https://github.com/vidavidorra/next-standard-version/compare/v3.0.11...v3.0.12) (2023-02-24)
 
 ### Bug Fixes
