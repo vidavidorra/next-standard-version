@@ -1,3 +1,9 @@
+## [3.0.18](https://github.com/vidavidorra/next-standard-version/compare/v3.0.17...v3.0.18) (2023-06-26)
+
+### Bug Fixes
+
+- **deps:** update dependency semver to v7.5.3 ([8a38b01](https://github.com/vidavidorra/next-standard-version/commit/8a38b016d999eb0dee8b1e03d11e9c7f90bf3134))
+
 ## [3.0.17](https://github.com/vidavidorra/next-standard-version/compare/v3.0.16...v3.0.17) (2023-06-19)
 
 ### Bug Fixes
