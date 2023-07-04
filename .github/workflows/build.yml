@@ -8,7 +8,7 @@ on:
   pull_request:
 jobs:
   lint:
-    uses: vidavidorra/.github/.github/workflows/node-lint.yml@560dc39186052da3500551598416718c8b8882d2 # v2.2.0
+    uses: vidavidorra/.github/.github/workflows/node-lint.yml@23ee7dab09881c30cd618afdd69bde8116aed190 # v2.2.1
   build:
     name: Build (Node.js v${{ matrix.node }})
     runs-on: ubuntu-latest
