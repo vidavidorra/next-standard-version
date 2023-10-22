@@ -58,7 +58,7 @@
     "@types/jest": "28.1.8",
     "@types/node": "18.18.6",
     "@types/semver": "7.5.4",
-    "@types/yargs": "17.0.28",
+    "@types/yargs": "17.0.29",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
     "@vidavidorra/commitlint-config": "5.0.2",
