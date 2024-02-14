@@ -61,7 +61,7 @@
     "@types/yargs": "17.0.32",
     "@typescript-eslint/eslint-plugin": "5.62.0",
     "@typescript-eslint/parser": "5.62.0",
-    "@vidavidorra/commitlint-config": "5.0.2",
+    "@vidavidorra/commitlint-config": "6.0.5",
     "eslint": "8.56.0",
     "eslint-config-prettier": "8.10.0",
     "eslint-plugin-jest": "27.6.0",
