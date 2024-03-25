@@ -8,4 +8,4 @@ on:
   pull_request:
 jobs:
   lint-commit-messages:
-    uses: vidavidorra/.github/.github/workflows/lint-commit-messages.yml@62580a2290da7a11a4332bbafc49ecb895d6873e # v3.0.0
+    uses: vidavidorra/.github/.github/workflows/lint-commit-messages.yml@e4e0f363c0afaa48377beba0cdbbc8c0dbc6a4f7 # v4.2.0
